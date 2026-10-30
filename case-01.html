@@ -5,11 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Building a design system from zero, then teaching AI to follow it — Alejandro Sánchez Fernández</title>
 <meta name="description" content="Case study: a lending company’s design system, built from scratch, shipped as a coded library and turned into the rulebook for AI-assisted prototyping.">
+<link rel="canonical" href="https://alejandrosfdesign.github.io/case-01.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Alejandro Sánchez Fernández">
+<meta property="og:title" content="Building a design system from zero, then teaching AI to follow it">
+<meta property="og:description" content="Case study: a lending company’s design system, built from scratch, shipped as a coded library and turned into the rulebook for AI-assisted prototyping.">
+<meta property="og:url" content="https://alejandrosfdesign.github.io/case-01.html">
+<meta property="og:image" content="https://alejandrosfdesign.github.io/assets/og/og-case-01.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Building a design system from zero, then teaching AI to follow it">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
 <script>document.documentElement.classList.add("js")</script>
-<link rel="stylesheet" href="assets/style.css?v=6">
+<link rel="stylesheet" href="assets/style.css?v=7">
 <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/icons/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
@@ -42,12 +53,13 @@
         <div><dt>Timeline</dt><dd>2022–2026</dd></div>
         <div><dt>Tools</dt><dd>Figma, Storybook, Chromatic, Jira, Claude, Claude Design</dd></div>
       </dl>
+      <p class="kestrel-note">Visuals are reconstructions built with Kestrel UI, a fictional brand with fictional data. They show the principles of the work, not the company’s actual screens.</p>
     </div>
   </section>
 
   <div class="wrap">
     <figure class="fig">
-      <img src="assets/img/c1-hero-cover.png" alt="Kestrel UI cover: a line chart of settled volume, status tags and a bulk action bar." width="3200" height="1920">
+      <a class="fig-link" href="assets/img/c1-hero-cover.png"><picture><source media="(max-width: 700px)" srcset="assets/img/c1-hero-cover-m.png"><img src="assets/img/c1-hero-cover.png" alt="Kestrel UI cover: a line chart of settled volume, status tags and a bulk action bar." width="3200" height="1920"></picture></a>
       <figcaption>Kestrel UI, a reconstruction of the system’s principles with a fictional brand and fictional data.</figcaption>
     </figure>
 
@@ -69,17 +81,17 @@
     </div>
 
     <figure class="fig">
-      <img src="assets/img/c1-v1a-token-architecture.png" alt="Token architecture table: primitives, semantic and component layers, with who uses each one and its rule." width="3200" height="1312" loading="lazy">
+      <a class="fig-link" href="assets/img/c1-v1a-token-architecture.png"><img src="assets/img/c1-v1a-token-architecture.png" alt="Token architecture table: primitives, semantic and component layers, with who uses each one and its rule." width="3200" height="1312" loading="lazy"></a>
       <figcaption>Token architecture: primitives feed semantic tokens, which feed components.</figcaption>
     </figure>
 
     <div class="fig-pair">
       <figure class="fig" style="margin: 0;">
-        <img src="assets/img/c1-v1b-semantic-tokens.png" alt="Semantic token board: text, surface, border, action, status, chart and focus tokens with their primitive aliases." width="2880" height="2716" loading="lazy">
+        <a class="fig-link" href="assets/img/c1-v1b-semantic-tokens.png"><img src="assets/img/c1-v1b-semantic-tokens.png" alt="Semantic token board: text, surface, border, action, status, chart and focus tokens with their primitive aliases." width="2880" height="2716" loading="lazy"></a>
         <figcaption>Semantic tokens are named by purpose, never by appearance.</figcaption>
       </figure>
       <figure class="fig" style="margin: 0;">
-        <img src="assets/img/c1-v1c-spacing-scale.png" alt="Spacing scale from 4 to 64 with usage notes and layout rules." width="2880" height="1108" loading="lazy">
+        <a class="fig-link" href="assets/img/c1-v1c-spacing-scale.png"><img src="assets/img/c1-v1c-spacing-scale.png" alt="Spacing scale from 4 to 64 with usage notes and layout rules." width="2880" height="1108" loading="lazy"></a>
         <figcaption>A 4px base and 8px rhythm. If a value is not on the scale, the layout is wrong, not the scale.</figcaption>
       </figure>
     </div>
@@ -92,17 +104,17 @@
     </div>
 
     <figure class="fig">
-      <img src="assets/img/c1-v2b-table-row.png" alt="Table row component documentation: anatomy, states and rules, with header and row variants." width="3200" height="2220" loading="lazy">
+      <a class="fig-link" href="assets/img/c1-v2b-table-row.png"><img src="assets/img/c1-v2b-table-row.png" alt="Table row component documentation: anatomy, states and rules, with header and row variants." width="3200" height="2220" loading="lazy"></a>
       <figcaption>Component anatomy: every state documented once, so design and code share the same source.</figcaption>
     </figure>
 
     <div class="fig-pair">
       <figure class="fig" style="margin: 0;">
-        <img src="assets/img/c1-v2a-button.png" alt="Button component with primary, secondary, tertiary and danger variants in every state." width="3200" height="1148" loading="lazy">
+        <a class="fig-link" href="assets/img/c1-v2a-button.png"><img src="assets/img/c1-v2a-button.png" alt="Button component with primary, secondary, tertiary and danger variants in every state." width="3200" height="1148" loading="lazy"></a>
         <figcaption>Buttons: three hierarchy levels plus Danger, one Primary per view.</figcaption>
       </figure>
       <figure class="fig" style="margin: 0;">
-        <img src="assets/img/c1-v2c-status-tag.png" alt="Status tag component with settled, pending, failed and draft states." width="3200" height="1020" loading="lazy">
+        <a class="fig-link" href="assets/img/c1-v2c-status-tag.png"><img src="assets/img/c1-v2c-status-tag.png" alt="Status tag component with settled, pending, failed and draft states." width="3200" height="1020" loading="lazy"></a>
         <figcaption>Status tags repeat meaning with an icon, so status never depends on color alone.</figcaption>
       </figure>
     </div>
@@ -161,12 +173,12 @@
     </div>
 
     <figure class="fig">
-      <img src="assets/img/c1-v5a-ai-rules.png" alt="Rules for AI-assisted prototyping: always, never, and what to do when the system has a gap." width="3200" height="1044" loading="lazy">
+      <a class="fig-link" href="assets/img/c1-v5a-ai-rules.png"><img src="assets/img/c1-v5a-ai-rules.png" alt="Rules for AI-assisted prototyping: always, never, and what to do when the system has a gap." width="3200" height="1044" loading="lazy"></a>
       <figcaption>The rulebook for AI: constraints that can be checked, so output stays on-system without reviewing every pixel.</figcaption>
     </figure>
 
     <figure class="fig">
-      <img src="assets/img/c1-v5b-filter-bar.png" alt="Filter bar pattern with a search input, an open select menu and an export button." width="3200" height="1032" loading="lazy">
+      <a class="fig-link" href="assets/img/c1-v5b-filter-bar.png"><img src="assets/img/c1-v5b-filter-bar.png" alt="Filter bar pattern with a search input, an open select menu and an export button." width="3200" height="1032" loading="lazy"></a>
       <figcaption>Patterns combine existing components with documented rules, so a screen can be assembled without inventing anything new.</figcaption>
     </figure>
 
@@ -182,7 +194,6 @@
       <p>I’d measure cycle time from day one. The process clearly got faster, but I can only give an estimate, not a number.</p>
     </div>
 
-    <p class="note measure">All visuals are reconstructed illustrations built with Kestrel UI, a fictional brand, using fictional data. They show the principles and patterns of the work, not the company’s actual screens.</p>
 
     <section class="next">
       <p class="soon-note">Next case study</p>

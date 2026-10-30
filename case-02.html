@@ -5,11 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Turning one-by-one operations into safe bulk actions — Alejandro Sánchez Fernández</title>
 <meta name="description" content="Case study: the servicing platform and bulk actions that replaced one-account-at-a-time work for a lending operations team.">
+<link rel="canonical" href="https://alejandrosfdesign.github.io/case-02.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Alejandro Sánchez Fernández">
+<meta property="og:title" content="Turning one-by-one operations into safe bulk actions">
+<meta property="og:description" content="Case study: the servicing platform and bulk actions that replaced one-account-at-a-time work for a lending operations team.">
+<meta property="og:url" content="https://alejandrosfdesign.github.io/case-02.html">
+<meta property="og:image" content="https://alejandrosfdesign.github.io/assets/og/og-case-02.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Turning one-by-one operations into safe bulk actions">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
 <script>document.documentElement.classList.add("js")</script>
-<link rel="stylesheet" href="assets/style.css?v=6">
+<link rel="stylesheet" href="assets/style.css?v=7">
 <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/icons/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
@@ -42,12 +53,13 @@
         <div><dt>Timeline</dt><dd>2023–2025</dd></div>
         <div><dt>Users</dt><dd>40–50 operations and underwriting staff</dd></div>
       </dl>
+      <p class="kestrel-note">Visuals are reconstructions built with Kestrel UI, a fictional brand with fictional data. They show the principles of the work, not the company’s actual screens.</p>
     </div>
   </section>
 
   <div class="wrap">
     <figure class="fig">
-      <img src="assets/img/c2-v2-selectable-table.png" alt="An operational table with three selected rows and a bulk action bar showing 3 selected, Clear selection, Export and Mark as reviewed." width="2308" height="1048">
+      <a class="fig-link" href="assets/img/c2-v2-selectable-table.png"><picture><source media="(max-width: 700px)" srcset="assets/img/c2-v2-selectable-table-m.png"><img src="assets/img/c2-v2-selectable-table.png" alt="An operational table with three selected rows and a bulk action bar showing 3 selected, Clear selection, Export and Mark as reviewed." width="2308" height="1048"></picture></a>
       <figcaption>Select, then act: selected rows carry a marker and a tinted surface, and the bulk bar keeps a live count.</figcaption>
     </figure>
 
@@ -96,7 +108,7 @@
     </div>
 
     <figure class="fig">
-      <img src="assets/img/c2-v3-confirm-report.png" alt="Three steps: the bulk action bar, a confirmation modal summarizing 3 records and the total amount, and a success toast with Undo." width="3178" height="824" loading="lazy">
+      <a class="fig-link" href="assets/img/c2-v3-confirm-report.png"><img src="assets/img/c2-v3-confirm-report.png" alt="Three steps: the bulk action bar, a confirmation modal summarizing 3 records and the total amount, and a success toast with Undo." width="3178" height="824" loading="lazy"></a>
       <figcaption>Ask before, report after. In this reconstruction, each step repeats the same verb and figures so the agent can check them.</figcaption>
     </figure>
 
@@ -129,12 +141,12 @@
     </div>
 
     <figure class="fig">
-      <img src="assets/img/c2-v4-partial-result.png" alt="A table where one selected row shows a Failed tag with the reason Record locked, next to a warning toast: 2 of 3 records marked as reviewed, 1 failed, Retry failed." width="3008" height="548" loading="lazy">
+      <a class="fig-link" href="assets/img/c2-v4-partial-result.png"><img src="assets/img/c2-v4-partial-result.png" alt="A table where one selected row shows a Failed tag with the reason Record locked, next to a warning toast: 2 of 3 records marked as reviewed, 1 failed, Retry failed." width="3008" height="548" loading="lazy"></a>
       <figcaption>Next iteration: the failed record says why, and the agent can retry only that one.</figcaption>
     </figure>
 
     <figure class="fig">
-      <img src="assets/img/c2-v5-risk-modal.png" alt="Two confirmation modals side by side: a default one to mark 3 records as reviewed, and a risk one to delete 3 records with a red confirm button." width="2392" height="932" loading="lazy">
+      <a class="fig-link" href="assets/img/c2-v5-risk-modal.png"><img src="assets/img/c2-v5-risk-modal.png" alt="Two confirmation modals side by side: a default one to mark 3 records as reviewed, and a risk one to delete 3 records with a red confirm button." width="2392" height="932" loading="lazy"></a>
       <figcaption>Next iteration: irreversible actions get a Risk confirmation, visibly different from routine ones.</figcaption>
     </figure>
 
@@ -144,15 +156,14 @@
     </div>
 
     <figure class="fig">
-      <img src="assets/img/c2-v6-line-chart.png" alt="A line chart of settled volume over 12 weeks, shown at rest and on hover with a tooltip." width="3008" height="876" loading="lazy">
+      <a class="fig-link" href="assets/img/c2-v6-line-chart.png"><img src="assets/img/c2-v6-line-chart.png" alt="A line chart of settled volume over 12 weeks, shown at rest and on hover with a tooltip." width="3008" height="876" loading="lazy"></a>
       <figcaption>A trend chart at rest and on hover: the tooltip snaps to the nearest point.</figcaption>
     </figure>
 
-    <p class="note measure">All visuals are reconstructed illustrations built with Kestrel UI, a fictional brand, using fictional data. They show the principles and patterns of the work, not the company’s actual screens.</p>
 
     <section class="next">
       <p class="soon-note">Next case study</p>
-      <h3 style="margin-top: 8px;"><a href="case-03.html" style="color: var(--ink); text-decoration: none;">A portal for 250+ lending partners</a></h3>
+      <h3 style="margin-top: 8px;"><a href="case-03.html" style="color: var(--ink); text-decoration: none;">Getting applicants through a form someone else started</a></h3>
       <p style="margin-top: 16px;"><a href="index.html#work">Back to all work</a></p>
     </section>
   </div>
