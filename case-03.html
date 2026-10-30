@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A portal for 250+ lending partners — Alejandro Sánchez Fernández</title>
+<meta name="description" content="Case study: the portal 250+ lending partners use to submit applications, follow accounts and manage commissions, and the fix that got more applicants to finish.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<script>document.documentElement.classList.add("js")</script>
+<link rel="stylesheet" href="assets/style.css?v=6">
+<link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/icons/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="site-name" href="index.html">Alejandro Sánchez Fernández</a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="index.html#work">Work</a>
+      <a href="index.html#about">About</a>
+      <a href="cv/Alejandro-Sanchez-Fernandez-CV.pdf">CV (PDF)</a>
+      <a href="https://www.linkedin.com/in/alejandrokraken">LinkedIn</a>
+    </nav>
+  </div>
+  <div class="wrap rule" aria-hidden="true" style="margin-top: 20px;"></div>
+</header>
+
+<main id="main">
+  <section class="case-hero">
+    <div class="wrap intro">
+      <a class="back" href="index.html#work">All work</a>
+      <h1>A portal for 250+ lending partners</h1>
+      <p class="lede">Banks and fintechs offered small-business loans through Quantum’s platform. Together with my design teammate, I designed the portal their teams worked in, the internal admin that managed them, and the application flow their customers completed.</p>
+      <dl class="facts">
+        <div><dt>Role</dt><dd>Product design, co-led with my teammate</dd></div>
+        <div><dt>Team</dt><dd>2 designers, engineering, Director of Product</dd></div>
+        <div><dt>Timeline</dt><dd>2023–2025</dd></div>
+        <div><dt>Users</dt><dd>250+ partners, including US Bank and SoFi, and their applicants</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <figure class="fig">
+      <img src="assets/img/c3-v1-partner-dashboard.png" alt="A partner portal dashboard in manager view: navigation for applications, accounts, commissions and documents, three summary cards and a table of recent applications with statuses." width="3604" height="1500">
+      <figcaption>The partner portal in manager view. Agents see the same portal, with commissions read-only.</figcaption>
+    </figure>
+
+    <div class="prose measure">
+      <h2>Context</h2>
+      <p>Quantum is lending infrastructure: partners bring the borrowers, Quantum runs the lending. Partners needed one place to submit applications, follow their accounts, see their commissions and handle documents, and Quantum needed a way to onboard and manage those partners.</p>
+
+      <h2>My role</h2>
+      <p>I co-designed the experience with my design teammate, from definition sessions and initial flows to information architecture and bi-weekly demos with stakeholders. We split the work evenly and refined it together.</p>
+
+      <h2>Three kinds of users, one system</h2>
+      <p>Roles let the same portal serve an agent and a manager without separate products, and an internal admin kept partners, users and permissions under control.</p>
+    </div>
+
+    <div class="diagram" role="figure" aria-label="What each role can do">
+      <p class="title">Who does what</p>
+      <div class="matrix-wrap">
+        <table class="matrix">
+          <thead>
+            <tr><th scope="col">Role</th><th scope="col">Applications</th><th scope="col">Accounts</th><th scope="col">Commissions</th><th scope="col">Documents</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Partner agent<small>Partner portal</small></th><td class="yes">Submit and track</td><td class="yes">Follow</td><td class="no">View only</td><td class="yes">Manage</td></tr>
+            <tr><th scope="row">Partner manager<small>Partner portal</small></th><td class="yes">Submit and track</td><td class="yes">Follow</td><td class="yes">View and manage</td><td class="yes">Manage</td></tr>
+            <tr><th scope="row">Quantum team<small>Internal admin</small></th><td colspan="4" class="yes">Onboard partners, set up their users and roles, and configure each partner</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="prose measure">
+      <h2>The problem we found after launch</h2>
+      <p>Applications reached Quantum in two ways: partners filled them in on the applicant’s behalf, or sent the applicant a link to a pre-filled form. Session recordings showed where the second path broke down. Applicants opened a form that was mostly complete but still missing fields only they could answer, and they struggled to find them. Many left before finishing.</p>
+    </div>
+
+    <figure class="fig">
+      <img src="assets/img/c3-v3-before-after.png" alt="The same pre-filled application before and after: before, a plain form with empty fields mixed among filled ones; after, a progress bar, a count of fields that need input, a Next missing field button and per-section completion." width="3360" height="2418" loading="lazy">
+      <figcaption>Before and after. The fields are the same; what changed is how quickly the applicant can find what’s missing.</figcaption>
+    </figure>
+
+    <div class="prose measure">
+      <h2>Decisions</h2>
+      <div class="decisions">
+        <div class="decision">
+          <h3>Take people to what’s missing</h3>
+          <p>Over a couple of iterations we added a toolbar that moves the applicant to the next missing field, so they don’t have to scan a long form for gaps.</p>
+        </div>
+        <div class="decision">
+          <h3>Show progress, not just fields</h3>
+          <p>A progress bar makes clear how much is left, which matters most when a form arrives already half done.</p>
+        </div>
+        <div class="decision">
+          <h3>Plain language where compliance allows</h3>
+          <p>We removed jargon and reordered fields so the questions made sense in sequence, while keeping the wording compliance required.</p>
+        </div>
+      </div>
+    </div>
+
+    <figure class="fig fig-narrow">
+      <img src="assets/img/c3-v2-prefilled-application.png" alt="Applicant view of a pre-filled application: 8 of 11 fields complete, 3 fields need input, a Next missing field button, sections pre-filled by the partner, missing fields marked Required to submit, and a disabled Submit button explaining why." width="2528" height="2756" loading="lazy">
+      <figcaption>The applicant’s view: what the partner filled in, what’s left, and why Submit is still unavailable.</figcaption>
+    </figure>
+
+    <div class="prose measure">
+      <h2>Outcome</h2>
+      <ul>
+        <li>More applicants completed their applications and fewer abandoned the form, observed after the changes but not formally measured.</li>
+        <li>The Director of Product named the partner portal one of the standout design wins of 2025.</li>
+      </ul>
+
+      <h2>What I’d do differently</h2>
+      <p>Instrument the pre-filled form from day one: completion rate and drop-off by field. We saw the improvement in recordings and in completed applications, but a funnel would have shown exactly which change mattered most.</p>
+    </div>
+
+    <p class="note measure">All visuals are reconstructed illustrations built with Kestrel UI, a fictional brand, using fictional data. They show the principles and patterns of the work, not the company’s actual screens.</p>
+
+    <section class="next">
+      <p class="soon-note">Start again</p>
+      <h3 style="margin-top: 8px;"><a href="case-01.html" style="color: var(--ink); text-decoration: none;">Building a design system from zero, then teaching AI to follow it</a></h3>
+      <p style="margin-top: 16px;"><a href="index.html#work">Back to all work</a></p>
+    </section>
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="rule" aria-hidden="true"></div>
+    <div class="links">
+      <a href="mailto:hcakraken@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/alejandrokraken">LinkedIn</a>
+      <a href="cv/Alejandro-Sanchez-Fernandez-CV.pdf">CV (PDF)</a>
+    </div>
+  </div>
+</footer>
+<script>
+(() => {
+  if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const sel = '.work-item, .about > *, .fig, .fig-pair, .diagram, .prose, .note, .next';
+  const els = [...document.querySelectorAll(sel)].filter(el => !el.parentElement.closest('.fig-pair'));
+  els.forEach(el => el.classList.add('reveal'));
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.05, rootMargin: '0px 0px -6% 0px' });
+  els.forEach(el => io.observe(el));
+})();
+</script>
+</body>
+</html>

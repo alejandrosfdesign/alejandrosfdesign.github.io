@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Turning one-by-one operations into safe bulk actions — Alejandro Sánchez Fernández</title>
+<meta name="description" content="Case study: the servicing platform and bulk actions that replaced one-account-at-a-time work for a lending operations team.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<script>document.documentElement.classList.add("js")</script>
+<link rel="stylesheet" href="assets/style.css?v=6">
+<link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/icons/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="site-name" href="index.html">Alejandro Sánchez Fernández</a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="index.html#work">Work</a>
+      <a href="index.html#about">About</a>
+      <a href="cv/Alejandro-Sanchez-Fernandez-CV.pdf">CV (PDF)</a>
+      <a href="https://www.linkedin.com/in/alejandrokraken">LinkedIn</a>
+    </nav>
+  </div>
+  <div class="wrap rule" aria-hidden="true" style="margin-top: 20px;"></div>
+</header>
+
+<main id="main">
+  <section class="case-hero">
+    <div class="wrap intro">
+      <a class="back" href="index.html#work">All work</a>
+      <h1>Turning <span style="white-space: nowrap">one-by-one</span> operations into safe bulk actions</h1>
+      <p class="lede">Operations agents processed payment requests and account locks one account at a time. I designed the servicing platform they work in and the bulk actions that replaced that work.</p>
+      <dl class="facts">
+        <div><dt>Role</dt><dd>Product design, from workflow mapping to shipped UI</dd></div>
+        <div><dt>Team</dt><dd>2 designers, ~8 engineers, Director of Product</dd></div>
+        <div><dt>Timeline</dt><dd>2023–2025</dd></div>
+        <div><dt>Users</dt><dd>40–50 operations and underwriting staff</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <figure class="fig">
+      <img src="assets/img/c2-v2-selectable-table.png" alt="An operational table with three selected rows and a bulk action bar showing 3 selected, Clear selection, Export and Mark as reviewed." width="2308" height="1048">
+      <figcaption>Select, then act: selected rows carry a marker and a tinted surface, and the bulk bar keeps a live count.</figcaption>
+    </figure>
+
+    <div class="prose measure">
+      <h2>Context</h2>
+      <p>Servicing a single small-business loan meant jumping between separate tools: account summaries, requests, documents and cash-flow analysis each lived in their own place. Quantum Hub brought them into one platform, and I designed its UI foundations.</p>
+
+      <h2>The problem</h2>
+      <p>Agents handled around 70 accounts a day (my estimate), and payment requests and account locks had to be processed one by one. The old tools also communicated poorly what would happen, what had failed and what an agent was allowed to do.</p>
+    </div>
+
+    <div class="diagram" role="figure" aria-label="Processing accounts before and after bulk actions">
+      <p class="title">One account at a time, then all at once</p>
+      <p class="row-label">Before, repeated for every account</p>
+      <ol class="flow">
+        <li><div class="step">Open the account</div></li>
+        <li><div class="step">Review it</div></li>
+        <li><div class="step">Act on it</div></li>
+        <li><div class="step">Confirm</div></li>
+        <li><div class="step">Go back to the list</div></li>
+      </ol>
+      <p class="row-label">After, once per batch</p>
+      <ol class="flow">
+        <li><div class="step">Select the accounts</div></li>
+        <li><div class="step gate">Act once<small>One bulk action</small></div></li>
+        <li><div class="step">Confirm</div></li>
+        <li><div class="step">Review the result<small>Failures listed</small></div></li>
+      </ol>
+    </div>
+
+    <div class="prose measure">
+      <h2>How I worked</h2>
+      <p>I interviewed and observed operations agents directly, and ran sessions with operations stakeholders to map how they actually worked, then prioritized by how often each task happened. Ongoing feedback also came through operations managers, and our design team turned those findings into its own tickets.</p>
+
+      <h2>Decisions</h2>
+      <div class="decisions">
+        <div class="decision">
+          <h3>Select, then act</h3>
+          <p>Agents choose many accounts in the table and run a single action, instead of opening each record.</p>
+        </div>
+        <div class="decision">
+          <h3>Ask before, report after</h3>
+          <p>Every bulk action asked for confirmation before running and reported the result after, so agents could verify what they were about to change and what actually changed.</p>
+        </div>
+      </div>
+    </div>
+
+    <figure class="fig">
+      <img src="assets/img/c2-v3-confirm-report.png" alt="Three steps: the bulk action bar, a confirmation modal summarizing 3 records and the total amount, and a success toast with Undo." width="3178" height="824" loading="lazy">
+      <figcaption>Ask before, report after. In this reconstruction, each step repeats the same verb and figures so the agent can check them.</figcaption>
+    </figure>
+
+    <div class="prose measure">
+      <div class="decisions">
+        <div class="decision">
+          <h3>Failures stay visible</h3>
+          <p>When some accounts failed, the result listed which ones, instead of reporting a single success or a single error for the whole batch.</p>
+        </div>
+        <div class="decision">
+          <h3>Permissions, surfaced</h3>
+          <p>Actions an agent couldn’t perform were disabled, with a tooltip explaining the restriction.</p>
+        </div>
+      </div>
+
+      <h2>Outcome</h2>
+      <ul>
+        <li>Bulk actions replaced one-by-one processing for payment requests and account locks, and shipped.</li>
+        <li>The Director of Product credited them with significant efficiency gains in servicing workflows.</li>
+      </ul>
+
+      <h2>What I’d do differently</h2>
+      <p>Measure time per task before and after launch. The gain was clear to the people using it, but I can’t put a number on it.</p>
+      <p>The shipped version also left room to improve, and I explored the next iteration in Kestrel UI:</p>
+      <ul>
+        <li><strong>Say why, and let agents retry.</strong> Failed accounts showed a general error. Each failure should state its reason and offer to retry only the failed ones.</li>
+        <li><strong>Friction where it matters.</strong> Locking an account used the same confirmation as any other action. High-risk actions deserve a Risk modal that the backdrop can’t dismiss, with focus starting on Cancel.</li>
+        <li><strong>Explain restrictions in place.</strong> Tooltips carried a generic permission message. The reason, and who can unblock the action, should be visible without hovering.</li>
+      </ul>
+    </div>
+
+    <figure class="fig">
+      <img src="assets/img/c2-v4-partial-result.png" alt="A table where one selected row shows a Failed tag with the reason Record locked, next to a warning toast: 2 of 3 records marked as reviewed, 1 failed, Retry failed." width="3008" height="548" loading="lazy">
+      <figcaption>Next iteration: the failed record says why, and the agent can retry only that one.</figcaption>
+    </figure>
+
+    <figure class="fig">
+      <img src="assets/img/c2-v5-risk-modal.png" alt="Two confirmation modals side by side: a default one to mark 3 records as reviewed, and a risk one to delete 3 records with a red confirm button." width="2392" height="932" loading="lazy">
+      <figcaption>Next iteration: irreversible actions get a Risk confirmation, visibly different from routine ones.</figcaption>
+    </figure>
+
+    <div class="prose measure">
+      <h2>Related work</h2>
+      <p>For ~30 underwriters I designed Cash Flow Analysis and Pre-Underwriting, including an interactive trend chart I proposed and prototyped; it shipped and engineering recognized it in a demo.</p>
+    </div>
+
+    <figure class="fig">
+      <img src="assets/img/c2-v6-line-chart.png" alt="A line chart of settled volume over 12 weeks, shown at rest and on hover with a tooltip." width="3008" height="876" loading="lazy">
+      <figcaption>A trend chart at rest and on hover: the tooltip snaps to the nearest point.</figcaption>
+    </figure>
+
+    <p class="note measure">All visuals are reconstructed illustrations built with Kestrel UI, a fictional brand, using fictional data. They show the principles and patterns of the work, not the company’s actual screens.</p>
+
+    <section class="next">
+      <p class="soon-note">Next case study</p>
+      <h3 style="margin-top: 8px;"><a href="case-03.html" style="color: var(--ink); text-decoration: none;">A portal for 250+ lending partners</a></h3>
+      <p style="margin-top: 16px;"><a href="index.html#work">Back to all work</a></p>
+    </section>
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="rule" aria-hidden="true"></div>
+    <div class="links">
+      <a href="mailto:hcakraken@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/alejandrokraken">LinkedIn</a>
+      <a href="cv/Alejandro-Sanchez-Fernandez-CV.pdf">CV (PDF)</a>
+    </div>
+  </div>
+</footer>
+<script>
+(() => {
+  if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const sel = '.work-item, .about > *, .fig, .fig-pair, .diagram, .prose, .note, .next';
+  const els = [...document.querySelectorAll(sel)].filter(el => !el.parentElement.closest('.fig-pair'));
+  els.forEach(el => el.classList.add('reveal'));
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.05, rootMargin: '0px 0px -6% 0px' });
+  els.forEach(el => io.observe(el));
+})();
+</script>
+</body>
+</html>

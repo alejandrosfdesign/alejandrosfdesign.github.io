@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Building a design system from zero, then teaching AI to follow it — Alejandro Sánchez Fernández</title>
+<meta name="description" content="Case study: a lending company’s design system, built from scratch, shipped as a coded library and turned into the rulebook for AI-assisted prototyping.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<script>document.documentElement.classList.add("js")</script>
+<link rel="stylesheet" href="assets/style.css?v=6">
+<link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/icons/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="site-name" href="index.html">Alejandro Sánchez Fernández</a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="index.html#work">Work</a>
+      <a href="index.html#about">About</a>
+      <a href="cv/Alejandro-Sanchez-Fernandez-CV.pdf">CV (PDF)</a>
+      <a href="https://www.linkedin.com/in/alejandrokraken">LinkedIn</a>
+    </nav>
+  </div>
+  <div class="wrap rule" aria-hidden="true" style="margin-top: 20px;"></div>
+</header>
+
+<main id="main">
+  <section class="case-hero">
+    <div class="wrap intro">
+      <a class="back" href="index.html#work">All work</a>
+      <h1>Building a design system from zero, then teaching AI to follow it</h1>
+      <p class="lede">I built a lending company’s design system from scratch, shipped it with engineering as a coded library, and later made it the rulebook for AI-assisted prototyping.</p>
+      <dl class="facts">
+        <div><dt>Role</dt><dd>First in-house product designer</dd></div>
+        <div><dt>Team</dt><dd>2 designers, ~8 engineers</dd></div>
+        <div><dt>Timeline</dt><dd>2022–2026</dd></div>
+        <div><dt>Tools</dt><dd>Figma, Storybook, Chromatic, Jira, Claude, Claude Design</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <figure class="fig">
+      <img src="assets/img/c1-hero-cover.png" alt="Kestrel UI cover: a line chart of settled volume, status tags and a bulk action bar." width="3200" height="1920">
+      <figcaption>Kestrel UI, a reconstruction of the system’s principles with a fictional brand and fictional data.</figcaption>
+    </figure>
+
+    <div class="prose measure">
+      <h2>Context</h2>
+      <p>When I joined Camino Financial, now Quantum Lending Solutions, there was no in-house product design and no shared system. Over the next years the system had to serve three kinds of products: an internal servicing platform for operations and underwriting teams, a portal for small-business borrowers, and a portal for lending partners.</p>
+
+      <h2>My role</h2>
+      <p>I built the design system, defined how design and engineering hand off work, and became the formal visual approver for front-end changes in Chromatic. In 2026, together with my design teammate, I redesigned our process around AI.</p>
+
+      <h2>The problem</h2>
+      <p>Design and engineering had no shared components, and handoff depended on scattered conversations instead of a clear process. Years later a new problem appeared: AI tools could produce screens fast, but nothing stopped them from inventing components, colors or spacing outside the system.</p>
+
+      <h2>Process and decisions</h2>
+      <div class="decision">
+        <h3>Foundations before components</h3>
+        <p>I started with tokens and variables, so every component would inherit the same decisions instead of repeating them.</p>
+      </div>
+    </div>
+
+    <figure class="fig">
+      <img src="assets/img/c1-v1a-token-architecture.png" alt="Token architecture table: primitives, semantic and component layers, with who uses each one and its rule." width="3200" height="1312" loading="lazy">
+      <figcaption>Token architecture: primitives feed semantic tokens, which feed components.</figcaption>
+    </figure>
+
+    <div class="fig-pair">
+      <figure class="fig" style="margin: 0;">
+        <img src="assets/img/c1-v1b-semantic-tokens.png" alt="Semantic token board: text, surface, border, action, status, chart and focus tokens with their primitive aliases." width="2880" height="2716" loading="lazy">
+        <figcaption>Semantic tokens are named by purpose, never by appearance.</figcaption>
+      </figure>
+      <figure class="fig" style="margin: 0;">
+        <img src="assets/img/c1-v1c-spacing-scale.png" alt="Spacing scale from 4 to 64 with usage notes and layout rules." width="2880" height="1108" loading="lazy">
+        <figcaption>A 4px base and 8px rhythm. If a value is not on the scale, the layout is wrong, not the scale.</figcaption>
+      </figure>
+    </div>
+
+    <div class="prose measure" style="margin-top: 48px;">
+      <div class="decision">
+        <h3>Blueprints engineering could build from</h3>
+        <p>Components came with documentation and blueprints, and engineering implemented them as a coded library used across all products.</p>
+      </div>
+    </div>
+
+    <figure class="fig">
+      <img src="assets/img/c1-v2b-table-row.png" alt="Table row component documentation: anatomy, states and rules, with header and row variants." width="3200" height="2220" loading="lazy">
+      <figcaption>Component anatomy: every state documented once, so design and code share the same source.</figcaption>
+    </figure>
+
+    <div class="fig-pair">
+      <figure class="fig" style="margin: 0;">
+        <img src="assets/img/c1-v2a-button.png" alt="Button component with primary, secondary, tertiary and danger variants in every state." width="3200" height="1148" loading="lazy">
+        <figcaption>Buttons: three hierarchy levels plus Danger, one Primary per view.</figcaption>
+      </figure>
+      <figure class="fig" style="margin: 0;">
+        <img src="assets/img/c1-v2c-status-tag.png" alt="Status tag component with settled, pending, failed and draft states." width="3200" height="1020" loading="lazy">
+        <figcaption>Status tags repeat meaning with an icon, so status never depends on color alone.</figcaption>
+      </figure>
+    </div>
+
+    <div class="prose measure" style="margin-top: 48px;">
+      <div class="decision">
+        <h3>A gate, not a guideline</h3>
+        <p>No visual change reached production without review in Chromatic. Consistency stopped depending on memory.</p>
+      </div>
+    </div>
+
+    <div class="diagram" role="figure" aria-label="Governance flow from Figma to merge">
+      <p class="title">From design to production</p>
+      <ol class="flow">
+        <li><div class="step">Figma<small>Designed with the kit’s components and tokens</small></div></li>
+        <li><div class="step">Storybook<small>Engineering builds the coded component</small></div></li>
+        <li><div class="step gate">Chromatic review<small>Visual approval by design</small></div></li>
+        <li><div class="step">Merge<small>Ships to every product</small></div></li>
+      </ol>
+      <div class="legend"><span class="l-gate">Design approval gate</span></div>
+    </div>
+
+    <div class="prose measure">
+      <div class="decision">
+        <h3>A process that expects AI</h3>
+        <p>Our workflow went from four stages to six, adding AI exploration and structured feedback before the first real iteration.</p>
+      </div>
+    </div>
+
+    <div class="diagram" role="figure" aria-label="Design process before and after adding AI">
+      <p class="title">Process, before and after</p>
+      <p class="row-label">Before</p>
+      <ol class="flow">
+        <li><div class="step">To do</div></li>
+        <li><div class="step">In progress</div></li>
+        <li><div class="step">Ready for review</div></li>
+        <li><div class="step">Done</div></li>
+      </ol>
+      <p class="row-label">After</p>
+      <ol class="flow">
+        <li><div class="step">To do</div></li>
+        <li><div class="step ai">AI exploration</div></li>
+        <li><div class="step">Shared for feedback</div></li>
+        <li><div class="step">First iteration</div></li>
+        <li><div class="step">Ready for review</div></li>
+        <li><div class="step">Done</div></li>
+      </ol>
+      <div class="legend"><span class="l-ai">AI generates options inside the system; people decide what moves forward</span></div>
+    </div>
+
+    <div class="prose measure">
+      <div class="decision">
+        <h3>One source of truth for AI</h3>
+        <p>We set up Claude and Claude Design to prototype only with the UI kit’s components, tokens and variables. If something new was truly needed, it had to be documented first, then reviewed for the system.</p>
+      </div>
+    </div>
+
+    <figure class="fig">
+      <img src="assets/img/c1-v5a-ai-rules.png" alt="Rules for AI-assisted prototyping: always, never, and what to do when the system has a gap." width="3200" height="1044" loading="lazy">
+      <figcaption>The rulebook for AI: constraints that can be checked, so output stays on-system without reviewing every pixel.</figcaption>
+    </figure>
+
+    <figure class="fig">
+      <img src="assets/img/c1-v5b-filter-bar.png" alt="Filter bar pattern with a search input, an open select menu and an export button." width="3200" height="1032" loading="lazy">
+      <figcaption>Patterns combine existing components with documented rules, so a screen can be assembled without inventing anything new.</figcaption>
+    </figure>
+
+    <div class="prose measure">
+      <h2>Outcome</h2>
+      <ul>
+        <li>One coded library across every product.</li>
+        <li>Typical design tasks went from about a week to 2–3 days (my estimate).</li>
+        <li>My director of product noted that the team could prototype without waiting on design capacity.</li>
+      </ul>
+
+      <h2>What I’d do differently</h2>
+      <p>I’d measure cycle time from day one. The process clearly got faster, but I can only give an estimate, not a number.</p>
+    </div>
+
+    <p class="note measure">All visuals are reconstructed illustrations built with Kestrel UI, a fictional brand, using fictional data. They show the principles and patterns of the work, not the company’s actual screens.</p>
+
+    <section class="next">
+      <p class="soon-note">Next case study</p>
+      <h3 style="margin-top: 8px;"><a href="case-02.html" style="color: var(--ink); text-decoration: none;">Turning <span style="white-space: nowrap">one-by-one</span> operations into safe bulk actions</a></h3>
+      <p style="margin-top: 16px;"><a href="index.html#work">Back to all work</a></p>
+    </section>
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="rule" aria-hidden="true"></div>
+    <div class="links">
+      <a href="mailto:hcakraken@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/alejandrokraken">LinkedIn</a>
+      <a href="cv/Alejandro-Sanchez-Fernandez-CV.pdf">CV (PDF)</a>
+    </div>
+  </div>
+</footer>
+<script>
+(() => {
+  if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const sel = '.work-item, .about > *, .fig, .fig-pair, .diagram, .prose, .note, .next';
+  const els = [...document.querySelectorAll(sel)].filter(el => !el.parentElement.closest('.fig-pair'));
+  els.forEach(el => el.classList.add('reveal'));
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.05, rootMargin: '0px 0px -6% 0px' });
+  els.forEach(el => io.observe(el));
+})();
+</script>
+</body>
+</html>
