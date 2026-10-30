@@ -8,7 +8,8 @@
   --panel: #efeae0;
   --serif: 'Instrument Serif', Georgia, 'Times New Roman', serif;
   --mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
-  --text: 42rem;
+  --sans: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --text: 38rem;
   --wide: 72rem;
 }
 
@@ -237,7 +238,7 @@ p { margin: 0; text-wrap: pretty; }
 /* Wider hero copy, leaving room for the spec motif on desktop */
 @media (min-width: 961px) {
   .hero h1 { max-width: calc(100% - clamp(220px, 26vw, 320px) - 48px); font-size: clamp(40px, 6.2vw, 72px); }
-  .hero .lede { max-width: min(66ch, 100% - clamp(220px, 26vw, 320px) - 48px); }
+  .hero .lede { max-width: min(60ch, 100% - clamp(220px, 26vw, 320px) - 48px); }
 }
 
 /* Hero spec: trace-in animation */
@@ -268,3 +269,9 @@ picture { display: block; }
 .fig-link { display: block; border-radius: 8px; }
 .fig-link:focus-visible { outline-offset: 4px; }
 @media (hover: hover) { .fig-link { cursor: zoom-in; } }
+
+/* Running text in Plex Sans for long-form reading; Plex Mono stays on nav, facts, captions, dates and labels */
+.lede, .prose p, .prose li, .decision p, .work-item .summary, .about .body > p {
+  font-family: var(--sans); font-size: 16px; line-height: 1.6;
+}
+.case-hero .lede { font-size: 18px; }
