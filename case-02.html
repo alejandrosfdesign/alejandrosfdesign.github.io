@@ -67,9 +67,18 @@
       <h2>Context</h2>
       <p>Servicing a single small-business loan meant jumping between separate tools: account summaries, requests, documents and cash-flow analysis each lived in their own place. Quantum Hub brought them into one platform, and I designed its UI foundations.</p>
 
-      <h2>The problem</h2>
-      <p>Agents handled around 70 accounts a day (my estimate), and payment requests and account locks had to be processed one by one. The old tools also communicated poorly what would happen, what had failed and what an agent was allowed to do.</p>
     </div>
+
+    <section class="block">
+      <div class="prose measure">
+        <h2>The problem</h2>
+        <p>Agents handled around 70 accounts a day (my estimate). I interviewed and observed them directly, and ran sessions with operations stakeholders to map how they actually worked. Two problems came up:</p>
+      </div>
+      <div class="cards" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
+        <div class="card"><span class="t">One account at a time</span><p>Payment requests and account locks were processed one by one: open, review, act, confirm, back to the list.</p><span class="src">Found in: observation and interviews</span></div>
+        <div class="card"><span class="t">No clear feedback</span><p>The tools didn’t say clearly what would happen, what had failed or what an agent was allowed to do.</p><span class="src">Found in: observation and interviews</span></div>
+      </div>
+    </section>
 
     <div class="diagram" role="figure" aria-label="Processing accounts before and after bulk actions">
       <p class="title">One account at a time, then all at once</p>
@@ -90,10 +99,48 @@
       </ol>
     </div>
 
-    <div class="prose measure">
-      <h2>How I worked</h2>
-      <p>I interviewed and observed operations agents directly, and ran sessions with operations stakeholders to map how they actually worked, then prioritized by how often each task happened. Ongoing feedback also came through operations managers, and our design team turned those findings into its own tickets.</p>
+    <section class="block">
+      <div class="prose measure"><h2>Who we designed for</h2></div>
+      <div class="cards" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
+        <div class="card"><span class="t">Operations agent</span><p><b>Goal:</b> process the day’s volume quickly and without errors, sure that each change hit the right account.</p><p><b>Frustration:</b> repeating the same cycle account by account, with a system that didn’t say what would happen, what failed or what they were allowed to do.</p></div>
+        <div class="card"><span class="t">Operations manager</span><p><b>Goal:</b> the team clears the day’s volume with control: what changed, what failed, and each agent doing only what they’re allowed to.</p><p><b>Frustration:</b> with no report per batch, errors showed up late and had to be checked account by account.</p></div>
+      </div>
+    </section>
 
+    <section class="block">
+      <div class="prose measure">
+        <h2>What went first</h2>
+        <p>We prioritized by how often each task happened. Ongoing feedback also came through operations managers, and our design team turned it into its own tickets.</p>
+      </div>
+      <div class="cards" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
+        <div class="card first"><span class="lab">First</span><p><b>Payment requests</b> and <b>account locks</b>: the main volume.</p></div>
+        <div class="card"><span class="lab">Also competing</span><p><b>Draw requests</b>, and <b>approvals and rejections</b> of applications in progress.</p></div>
+      </div>
+    </section>
+
+    <section class="block">
+      <div class="prose measure"><h2>Key challenges</h2></div>
+      <div style="margin-top: 24px;">
+        <div class="dd-strip"><div><p class="n">One account at a time</p><span class="res">One action per batch</span></div><ol class="phases"><li><span class="l">Discover</span>Observation and interviews: agents repeated the same cycle for every account.</li><li><span class="l">Define</span>Start with the most frequent tasks: payment requests and account locks.</li><li class="m"><span class="l">Develop</span>Select, then act: choose many accounts in the table and run a single action.</li><li class="m"><span class="l">Deliver</span>Bulk actions replaced one-by-one processing for both tasks, and shipped.</li></ol></div>
+        <div class="dd-strip"><div><p class="n">No clear feedback</p><span class="res">Checked before, reported after</span></div><ol class="phases"><li><span class="l">Discover</span>Observation and interviews: unclear outcomes, failures found late, permissions not explained.</li><li><span class="l">Define</span>Agents verify before and after each action; managers see what changed and what failed.</li><li class="m"><span class="l">Develop</span>Confirmation before, a result after, failures listed by account, disabled actions that explain why.</li><li class="m"><span class="l">Deliver</span>Shipped with the bulk actions; credited with significant efficiency gains.</li></ol></div>
+      </div>
+      <p class="dd-legend">Each challenge runs through the double diamond: Discover and Define in cobalt, Develop and Deliver in magenta.</p>
+    </section>
+
+    <section class="annotated">
+      <figure><a class="fig-link" href="assets/img/c2-v1-before.png"><img src="assets/img/c2-v1-before.png" srcset="assets/img/c2-v1-before-800.webp 800w, assets/img/c2-v1-before.webp 1520w" sizes="(max-width: 800px) calc(100vw - 48px), 520px" alt="An account detail screen before bulk actions, with four numbered markers: a Back to accounts link, a Process button, a disabled Lock account button, and a generic error toast." width="1520" height="886" loading="lazy"></a><figcaption>Before. Reconstruction with Kestrel UI and fictional data.</figcaption></figure>
+      <div>
+        <h2>Before: one record at a time</h2>
+        <ol class="issues">
+          <li><b>Back to the list, every time.</b> Acting on an account meant opening it, then returning to the list for the next one.</li>
+          <li><b>An action that didn’t say what it would do.</b> No summary of what was about to change before running it.</li>
+          <li><b>Restrictions without a reason.</b> An agent couldn’t tell why an action wasn’t available.</li>
+          <li><b>One message for the outcome.</b> When something failed, the agent didn’t learn what or why.</li>
+        </ol>
+      </div>
+    </section>
+
+    <div class="prose measure">
       <h2>Decisions</h2>
       <div class="decisions">
         <div class="decision">
@@ -130,6 +177,22 @@
         <li>The Director of Product credited them with significant efficiency gains in servicing workflows.</li>
       </ul>
 
+    </div>
+
+    <section class="block">
+      <div class="prose measure">
+        <h2>How I’d validate it</h2>
+        <p><span class="proposal">Proposal, not run in the project</span></p>
+      </div>
+      <div class="cards four">
+        <div class="card"><span class="t">Who</span><p>5 operations agents, following Nielsen: with 5 users most usability problems show up.</p></div>
+        <div class="card"><span class="t">How</span><p>Unmoderated tests with the prototype, on the desktop setup agents use.</p></div>
+        <div class="card"><span class="t">Tasks</span><p>Process a batch of payment requests, lock several accounts, find which accounts failed and why.</p></div>
+        <div class="card"><span class="t">Metrics</span><p>Success rate, time per task, errors on the wrong account, and SEQ (ease from 1 to 7 after each task).</p></div>
+      </div>
+    </section>
+
+    <div class="prose measure">
       <h2>What I’d do differently</h2>
       <p>Measure time per task before and after launch. The gain was clear to the people using it, but I can’t put a number on it.</p>
       <p>The shipped version also left room to improve, and I explored the next iteration in Kestrel UI:</p>
@@ -182,7 +245,7 @@
 <script>
 (() => {
   if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  const sel = '.work-item, .about > *, .fig, .fig-pair, .diagram, .prose, .note, .next';
+  const sel = '.work-item, .about > *, .fig, .fig-pair, .diagram, .prose, .note, .next, .cards, .dd-strip, .annotated';
   const els = [...document.querySelectorAll(sel)].filter(el => !el.parentElement.closest('.fig-pair'));
   els.forEach(el => el.classList.add('reveal'));
   const io = new IntersectionObserver(entries => {
