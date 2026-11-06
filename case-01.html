@@ -68,11 +68,25 @@
       <p>When I joined Camino Financial, now Quantum Lending Solutions, there was no in-house product design and no shared system. Over the next years the system had to serve three kinds of products: an internal servicing platform for operations and underwriting teams, a portal for small-business borrowers, and a portal for lending partners.</p>
 
       <h2>My role</h2>
-      <p>I built the design system, defined how design and engineering hand off work, and became the formal visual approver for front-end changes in Chromatic. In 2026, together with my design teammate, I redesigned our process around AI.</p>
+      <p>I was the company’s first in-house product designer, and there was no design system. Building it, shipping it with engineering and auditing it, end to end, was my responsibility. I defined how design and engineering hand off work and became the formal visual approver for front-end changes in Chromatic. In 2026, together with my design teammate, I redesigned our process around AI.</p>
 
       <h2>The problem</h2>
       <p>Design and engineering had no shared components, and handoff depended on scattered conversations instead of a clear process. Years later a new problem appeared: AI tools could produce screens fast, but nothing stopped them from inventing components, colors or spacing outside the system.</p>
 
+    </div>
+
+    <section class="block">
+      <div class="prose measure">
+        <h2>Who the system served</h2>
+      </div>
+      <div class="cards">
+        <div class="card"><span class="t">Designer</span><p>Designs with the kit’s components and tokens, and prototypes with AI inside the system.</p><p><b>Needs:</b> one source of truth, so new screens don’t reinvent components.</p></div>
+        <div class="card"><span class="t">Engineer</span><p>Builds from blueprints into the coded library, with visual review in Chromatic.</p><p><b>Needs:</b> documented anatomy and states, so code matches design without back-and-forth.</p></div>
+        <div class="card"><span class="t">PM or stakeholder</span><p>Reviews early iterations and decides what moves forward.</p><p><b>Needs:</b> something tangible to react to early, that can actually be built.</p></div>
+      </div>
+    </section>
+
+    <div class="prose measure">
       <h2>Process and decisions</h2>
       <div class="decision">
         <h3>Foundations before components</h3>
@@ -95,6 +109,18 @@
         <figcaption>A 4px base and 8px rhythm. If a value is not on the scale, the layout is wrong, not the scale.</figcaption>
       </figure>
     </div>
+
+    <div class="prose measure" style="margin-top: 48px;">
+      <div class="decision">
+        <h3>Each partner’s brand, as a token layer</h3>
+        <p>The partner portal had to carry each partner’s brand. White-label lived in the system’s color and brand tokens, which I coordinated with engineering: each partner set its primary color and logo, and the portal applied them without breaking components or contrast. It was used only in the partner portal, covered in <a href="case-03.html">the third case study</a>.</p>
+      </div>
+    </div>
+
+    <figure class="fig">
+      <a class="fig-link" href="assets/img/c1-v7-white-label.png"><img src="assets/img/c1-v7-white-label.png" srcset="assets/img/c1-v7-white-label-800.webp 800w, assets/img/c1-v7-white-label-1600.webp 1600w, assets/img/c1-v7-white-label.webp 2400w" sizes="(max-width: 1200px) calc(100vw - 48px), 1152px" alt="Brand tokens board: brand primary and brand logo are set per partner, primary actions and progress read from brand primary, and the same application card is shown in three brands: Kestrel indigo, Cedar Point Partners green and Alder Ridge Finance rust." width="2400" height="1096" loading="lazy"></a>
+      <figcaption>Two values per partner; everything else stays fixed. Reconstruction with Kestrel UI and fictional partners.</figcaption>
+    </figure>
 
     <div class="prose measure" style="margin-top: 48px;">
       <div class="decision">
@@ -182,14 +208,54 @@
       <figcaption>Patterns combine existing components with documented rules, so a screen can be assembled without inventing anything new.</figcaption>
     </figure>
 
+    <div class="prose measure" style="margin-top: 48px;">
+      <div class="decision">
+        <h3>A system that keeps itself current</h3>
+        <p>I connected the organization’s Claude Design to the system, so first iterations reached stakeholders in 2–3 days and were refined in Figma afterwards. Every 2 weeks, a Claude agent I set up audited our prototypes, documented what kept repeating and proposed what should become canonical. Its output was a documentation page inside the audited Figma file.</p>
+      </div>
+    </div>
+
+    <div class="diagram" role="figure" aria-label="AI-assisted design cycle with an audit agent feeding the UI kit">
+      <p class="title">From kit to stakeholders, and back into the kit</p>
+      <ol class="flow cycle">
+        <li><div class="step">UI Kit<small>Tokens and components, coded library</small></div></li>
+        <li><div class="step ai">Claude Design<small>Connected to the system: first iteration in 2–3 days</small></div></li>
+        <li><div class="step">Stakeholders<small>Early feedback on something tangible</small></div></li>
+        <li><div class="step">Figma<small>Fine detail and final prototype</small></div></li>
+        <li><div class="step agent">Audit agent<small>Every 2 weeks: what should become canonical</small></div></li>
+      </ol>
+      <div class="legend"><span class="l-ai">AI works inside the system</span><span class="l-agent">Candidates return to the UI Kit as canonical components</span></div>
+    </div>
+
+    <figure class="fig">
+      <a class="fig-link" href="assets/img/c1-v8-audit-page.png"><img src="assets/img/c1-v8-audit-page.png" srcset="assets/img/c1-v8-audit-page-800.webp 800w, assets/img/c1-v8-audit-page-1600.webp 1600w, assets/img/c1-v8-audit-page.webp 2400w" sizes="(max-width: 1200px) calc(100vw - 48px), 1152px" alt="A Figma page written by the audit agent: tables and summary cards repeated across prototypes, each with a proposal and marked as canonical." width="2400" height="882" loading="lazy"></a>
+      <figcaption>The agent’s page in the audited file. Tables and cards, missing from the system, became canonical this way. Reconstruction with fictional data.</figcaption>
+    </figure>
+
     <div class="prose measure">
       <h2>Outcome</h2>
       <ul>
-        <li>One coded library across every product.</li>
+        <li>One coded library across every product, with visual approval in Chromatic.</li>
+        <li>Tables and cards entered the system through the audit agent, so the kit kept up with what teams were actually building.</li>
         <li>Typical design tasks went from about a week to 2–3 days (my estimate).</li>
         <li>My director of product noted that the team could prototype without waiting on design capacity.</li>
       </ul>
 
+    </div>
+
+    <section class="block">
+      <div class="prose measure">
+        <h2>How I’d measure it</h2>
+        <p><span class="proposal">Proposal, not run in the project</span></p>
+      </div>
+      <div class="cards">
+        <div class="card"><span class="t">Cycle time</span><p>From ticket to first iteration shown to stakeholders, before and after AI exploration.</p></div>
+        <div class="card"><span class="t">Coverage</span><p>Share of prototype screens built only from canonical components, read from each audit.</p></div>
+        <div class="card"><span class="t">Time to canonical</span><p>From the first audit that flags a repeated pattern to its release in the coded library.</p></div>
+      </div>
+    </section>
+
+    <div class="prose measure">
       <h2>What I’d do differently</h2>
       <p>I’d measure cycle time from day one. The process clearly got faster, but I can only give an estimate, not a number.</p>
     </div>
@@ -216,7 +282,7 @@
 <script>
 (() => {
   if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  const sel = '.work-item, .about > *, .fig, .fig-pair, .diagram, .prose, .note, .next';
+  const sel = '.work-item, .about > *, .fig, .fig-pair, .diagram, .prose, .note, .next, .cards, .dd-strip, .annotated';
   const els = [...document.querySelectorAll(sel)].filter(el => !el.parentElement.closest('.fig-pair'));
   els.forEach(el => el.classList.add('reveal'));
   const io = new IntersectionObserver(entries => {
