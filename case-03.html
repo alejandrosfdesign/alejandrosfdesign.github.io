@@ -3,24 +3,24 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Getting applicants through a form someone else started — Alejandro Sánchez Fernández</title>
-<meta name="description" content="Case study: the portal 250+ lending partners use to submit applications, follow accounts and manage commissions, and the changes that helped more applicants finish.">
+<title>A portal for 250+ lending partners — Alejandro Sánchez Fernández</title>
+<meta name="description" content="Case study: a role-based portal, an internal admin and a redesigned application flow that took partner onboarding from 1–2 days to about 4 hours and cut form abandonment from ~30% to ~17% (approx.).">
 <link rel="canonical" href="https://alejandrosfdesign.github.io/case-03.html">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Alejandro Sánchez Fernández">
-<meta property="og:title" content="Getting applicants through a form someone else started">
-<meta property="og:description" content="Case study: the portal 250+ lending partners use to submit applications, follow accounts and manage commissions, and the changes that helped more applicants finish.">
+<meta property="og:title" content="A portal for 250+ lending partners">
+<meta property="og:description" content="Case study: a role-based portal, an internal admin and a redesigned application flow that took partner onboarding from 1–2 days to about 4 hours and cut form abandonment from ~30% to ~17% (approx.).">
 <meta property="og:url" content="https://alejandrosfdesign.github.io/case-03.html">
 <meta property="og:image" content="https://alejandrosfdesign.github.io/assets/og/og-case-03.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Getting applicants through a form someone else started">
+<meta property="og:image:alt" content="A portal for 250+ lending partners">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
 <script>document.documentElement.classList.add("js")</script>
-<link rel="stylesheet" href="assets/style.css?v=8">
+<link rel="stylesheet" href="assets/style.css?v=9">
 <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/icons/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
@@ -45,8 +45,8 @@
   <section class="case-hero">
     <div class="wrap intro">
       <a class="back" href="index.html#work">All work</a>
-      <h1>Getting applicants through a form someone else started</h1>
-      <p class="lede">Banks and fintechs offered small-business loans through Quantum’s platform. Together with my design teammate, I designed the portal their teams worked in, the internal admin that managed them, and the application flow their customers completed.</p>
+      <h1>A portal for 250+ lending partners</h1>
+      <p class="lede">A role-based portal, an internal admin and a redesigned application flow took partner onboarding from 1–2 days to about 4 hours, and cut form abandonment from ~30% to ~17%.</p>
       <dl class="facts">
         <div><dt>Role</dt><dd>Product design, co-led with my teammate</dd></div>
         <div><dt>Team</dt><dd>2 designers, engineering, Director of Product</dd></div>
@@ -63,77 +63,156 @@
       <figcaption>The partner portal in manager view. Agents see the same portal, with commissions read-only.</figcaption>
     </figure>
 
-    <div class="prose measure">
-      <h2>Context</h2>
-      <p>Quantum is lending infrastructure: partners bring the borrowers, Quantum runs the lending. Partners needed one place to submit applications, follow their accounts, see their commissions and handle documents, and Quantum needed a way to onboard and manage those partners.</p>
+    <section class="block">
+      <div class="prose measure">
+        <h2>The problem</h2>
+        <p>Quantum ran small-business lending for 250+ partners such as US Bank and SoFi. Growth ran into three problems:</p>
+      </div>
+      <div class="cards">
+        <div class="card"><span class="t">Slow onboarding</span><p>Setting up a partner took days and depended on engineering.</p><span class="src">Found in: definition sessions with operations</span></div>
+        <div class="card"><span class="t">Status by email</span><p>Partners chased application status by email, with no view of their commissions.</p><span class="src">Found in: sessions with partners and operations</span></div>
+        <div class="card"><span class="t">~30% abandonment</span><p>About 3 in 10 applicants abandoned the pre-filled form.</p><span class="src">Found in: session recordings and analytics (Hotjar and Datadog)</span></div>
+      </div>
+    </section>
 
+    <section class="block">
+      <div class="prose measure">
+        <h2>Who we designed for</h2>
+        <p>Personas built from research with all three groups, documented in the company’s Confluence.</p>
+      </div>
+      <div class="cards">
+        <div class="card"><span class="t">Operations</span><p>Quantum operations or partnerships agent. Works in the internal admin.</p><p><b>Goal:</b> onboard a partner quickly and without errors.</p><p><b>Frustration:</b> scattered setup, permission errors found late, depending on engineering.</p></div>
+        <div class="card"><span class="t">Partner manager</span><p>A bank or fintech lead who oversees a team of agents.</p><p><b>Goal:</b> see their pipeline and control what each agent sees.</p><p><b>Frustration:</b> chasing status by email, with no view of commissions.</p></div>
+        <div class="card"><span class="t">Applicant</span><p>A US small-business owner, often on a phone and short on time.</p><p><b>Goal:</b> finish fast and understand what’s missing.</p><p><b>Frustration:</b> a half-filled form and technical language.</p></div>
+      </div>
+    </section>
+
+    <section class="block">
+      <div class="prose measure"><h2>Outcome</h2></div>
+      <div class="cards four stats">
+        <div class="card stat"><span class="t">1–2 days → 4 h</span><p>to onboard a partner (approx.)</p></div>
+        <div class="card stat"><span class="t">~30% → ~17%</span><p>form abandonment (approx.)</p></div>
+        <div class="card stat"><span class="t">250+</span><p>partners on the portal</p></div>
+        <div class="card stat"><span class="t">2025</span><p>standout design win, per the Director of Product</p></div>
+      </div>
+      <p class="fine">Approximate figures observed in production with Hotjar and Datadog, not from a formal study.</p>
+      <div class="prose measure" style="margin-top: 24px;">
+        <ul>
+          <li>Application tracking moved from email into the portal, and fewer applications came back for missing data.</li>
+          <li>Consistent positive feedback from US Bank, and recognition for the design team in bi-weekly demos.</li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="prose measure">
       <h2>My role</h2>
-      <p>I co-designed the experience with my design teammate, from definition sessions and initial flows to information architecture and bi-weekly demos with stakeholders. We split the work evenly and refined it together.</p>
-
-      <h2>Three kinds of users, one system</h2>
-      <p>Roles let the same portal serve an agent and a manager without separate products, and an internal admin kept partners, users and permissions under control.</p>
+      <p>I co-designed the experience with my design teammate; we split the work evenly and refined it together. My part covered research and definition sessions with all three groups, the flows and information architecture of the admin, the portal and the application flow, and the role and permission model. I presented in bi-weekly demos, worked with compliance on wording, used Hotjar and Datadog to find where applicants dropped off, and reviewed each release as visual approver in Chromatic.</p>
     </div>
 
-    <div class="diagram" role="figure" aria-label="What each role can do">
-      <p class="title">Who does what</p>
-      <div class="matrix-wrap">
-        <table class="matrix">
-          <thead>
-            <tr><th scope="col">Role</th><th scope="col">Applications</th><th scope="col">Accounts</th><th scope="col">Commissions</th><th scope="col">Documents</th></tr>
-          </thead>
-          <tbody>
-            <tr><th scope="row">Partner agent<small>Partner portal</small></th><td class="yes">Submit and track</td><td class="yes">Follow</td><td class="no">View only</td><td class="yes">Manage</td></tr>
-            <tr><th scope="row">Partner manager<small>Partner portal</small></th><td class="yes">Submit and track</td><td class="yes">Follow</td><td class="yes">View and manage</td><td class="yes">Manage</td></tr>
-            <tr><th scope="row">Quantum team<small>Internal admin</small></th><td colspan="4" class="yes">Onboard partners, set up their users and roles, and configure each partner</td></tr>
-          </tbody>
-        </table>
+    <section class="block">
+      <div class="prose measure">
+        <h2>Why these challenges first</h2>
+        <p>An Eisenhower matrix adapted to urgency and importance for the business.</p>
       </div>
-    </div>
-
-    <div class="prose measure">
-      <h2>The problem we found after launch</h2>
-      <p>Applications reached Quantum in two ways: partners filled them in on the applicant’s behalf, or sent the applicant a link to a pre-filled form. Session recordings showed where the second path broke down. Applicants opened a form that was mostly complete but still missing fields only they could answer, and they struggled to find them. Many left before finishing.</p>
-    </div>
-
-    <figure class="fig">
-      <a class="fig-link" href="assets/img/c3-v3-before-after.png"><img src="assets/img/c3-v3-before-after.png" srcset="assets/img/c3-v3-before-after-800.webp 800w, assets/img/c3-v3-before-after-1600.webp 1600w, assets/img/c3-v3-before-after.webp 3360w" sizes="(max-width: 1200px) calc(100vw - 48px), 1152px" alt="The same pre-filled application before and after: before, a plain form with empty fields mixed among filled ones; after, a progress bar, a count of fields that need input, a Next missing field button and per-section completion." width="3360" height="2418" loading="lazy"></a>
-      <figcaption>Before and after. The fields are the same; what changed is how quickly the applicant can find what’s missing.</figcaption>
-    </figure>
-
-    <div class="prose measure">
-      <h2>Decisions</h2>
-      <div class="decisions">
-        <div class="decision">
-          <h3>Take people to what’s missing</h3>
-          <p>Over a couple of iterations we added a toolbar that moves the applicant to the next missing field, so they don’t have to scan a long form for gaps.</p>
+      <div class="diagram" role="figure" aria-label="Prioritization matrix: urgency by business importance">
+        <div class="prio">
+          <div class="ax-y">Importance for the business →</div>
+          <div class="card q now"><span class="lab">Do now</span><p><b>Partner onboarding</b> depended on engineering</p><p><b>Form abandonment</b> (~30%)</p></div>
+          <div class="card q plan"><span class="lab">Plan</span><p><b>Roles and permissions</b> per partner</p><p><b>Clarity vs. compliance</b></p></div>
+          <div class="card q"><span class="lab">Quick fix</span><p>One-off partner requests, handled as tickets inside the portal</p></div>
+          <div class="card q"><span class="lab">Later</span><p>Developer tools and advanced white-label customization (in QA when I left)</p></div>
+          <div></div><div class="ax-x">← More urgent · Less urgent →</div>
         </div>
-        <div class="decision">
-          <h3>Show progress, not just fields</h3>
-          <p>A progress bar makes clear how much is left, which matters most when a form arrives already half done.</p>
-        </div>
-        <div class="decision">
-          <h3>Plain language where compliance allows</h3>
-          <p>We removed jargon and reordered fields so the questions made sense in sequence, while keeping the wording compliance required.</p>
-        </div>
+        <div class="criteria"><span><b>Urgency:</b> how much it slowed operations or lost applications today.</span><span><b>Importance:</b> impact on partner growth and completed applications.</span><span><b>Frequency:</b> how many times a day it happened.</span></div>
       </div>
-    </div>
+    </section>
 
-    <figure class="fig fig-narrow">
-      <a class="fig-link" href="assets/img/c3-v2-prefilled-application.png"><img src="assets/img/c3-v2-prefilled-application.png" srcset="assets/img/c3-v2-prefilled-application-800.webp 800w, assets/img/c3-v2-prefilled-application-1600.webp 1600w, assets/img/c3-v2-prefilled-application.webp 2528w" sizes="(max-width: 808px) calc(100vw - 48px), 760px" alt="Applicant view of a pre-filled application: 8 of 11 fields complete, 3 fields need input, a Next missing field button, sections pre-filled by the partner, missing fields marked Required to submit, and a disabled Submit button explaining why." width="2528" height="2756" loading="lazy"></a>
-      <figcaption>The applicant’s view: what the partner filled in, what’s left, and why Submit is still unavailable.</figcaption>
-    </figure>
+    <section class="block">
+      <div class="prose measure"><h2>Key challenges</h2></div>
+      <div style="margin-top: 24px;">
+        <div class="dd-strip"><div><p class="n">The pre-filled form was abandoned</p><span class="res">~30% → ~17% abandonment</span></div><ol class="phases"><li><span class="l">Discover</span>Hotjar and Datadog: applicants couldn’t find the few fields only they could fill in.</li><li><span class="l">Define</span>“Do now”: every abandoned form was an application lost for the partner.</li><li class="m"><span class="l">Develop</span>A jump to the next missing field, visible progress, and a one-pass flow with Plaid.</li><li class="m"><span class="l">Deliver</span>Abandonment from ~30% to ~17% (approx.), measured again in Hotjar and Datadog.</li></ol></div>
+        <div class="dd-strip"><div><p class="n">Partner onboarding depended on engineering</p><span class="res">1–2 days → 4 hours</span></div><ol class="phases"><li><span class="l">Discover</span>Sessions with operations: scattered setup and permission errors that surfaced late.</li><li><span class="l">Define</span>Let operations onboard a partner on their own, in a guided flow with no technical changes.</li><li class="m"><span class="l">Develop</span>An internal admin to set up the partner, users, roles and white-label branding.</li><li class="m"><span class="l">Deliver</span>Onboarding went from 1–2 days to about 4 hours (approx.).</li></ol></div>
+        <div class="dd-strip"><div><p class="n">One portal, users with different permissions</p><span class="res">One base for 250+ partners</span></div><ol class="phases"><li><span class="l">Discover</span>Sessions with partners: agents and managers needed to see different things, especially commissions.</li><li><span class="l">Define</span>One system with roles, not separate products per type of user.</li><li class="m"><span class="l">Develop</span>Managers manage commissions; agents see them read-only. Permissions per partner.</li><li class="m"><span class="l">Deliver</span>250+ partners running on the same base.</li></ol></div>
+        <div class="dd-strip"><div><p class="n">Clarity versus compliance</p><span class="res">Clearer, same compliance</span></div><ol class="phases"><li><span class="l">Discover</span>Session recordings: technical language, but much of the wording was required by compliance.</li><li><span class="l">Define</span>Change only what wasn’t mandatory wording.</li><li class="m"><span class="l">Develop</span>We worked with compliance: removed jargon and reordered fields into a logical sequence.</li><li class="m"><span class="l">Deliver</span>Clearer questions without losing compliance.</li></ol></div>
+      </div>
+      <p class="dd-legend">Each challenge runs through the double diamond: Discover and Define in cobalt, Develop and Deliver in magenta.</p>
+    </section>
+
+    <section class="annotated">
+      <figure><a class="fig-link" href="assets/img/c3-v4-before.png"><img src="assets/img/c3-v4-before.png" srcset="assets/img/c3-v4-before-800.webp 800w, assets/img/c3-v4-before.webp 1200w" sizes="(max-width: 800px) calc(100vw - 48px), 520px" alt="The pre-filled application before the redesign, with four numbered markers: a warning banner whose Click to view link looks like plain text, an industry field asking for a NAICS code, a full date picker for the business start date, and a Complete application button with no count of pending fields." width="1200" height="1236" loading="lazy"></a><figcaption>Before. Reconstruction with Kestrel UI and fictional data.</figcaption></figure>
+      <div>
+        <h2>Before: what applicants saw</h2>
+        <p class="intro-p">Session recordings and analytics showed the same pattern on desktop and mobile:</p>
+        <ol class="issues">
+          <li><b>The notice didn’t read as an action.</b> “Click to view” had the same weight and color as the text, so people didn’t see it as a link.</li>
+          <li><b>Industry by NAICS code.</b> Applicants don’t know their business’s code; it was one of the fields where they got stuck most.</li>
+          <li><b>A calendar for a date that only needs month and year.</b> The other field with the most friction.</li>
+          <li><b>A button with no context.</b> No count of pending fields and no progress; on desktop the notice went unnoticed.</li>
+        </ol>
+        <p class="fine">Pre-filled and missing fields also looked the same.</p>
+      </div>
+    </section>
+
+    <section class="annotated">
+      <figure><a class="fig-link" href="assets/img/c3-v5-after.png"><img src="assets/img/c3-v5-after.png" srcset="assets/img/c3-v5-after-800.webp 800w, assets/img/c3-v5-after.webp 1200w" sizes="(max-width: 800px) calc(100vw - 48px), 520px" alt="The same pre-filled application after the redesign: 9 of 11 fields complete with a progress bar and a Jump to next missing button, pre-filled fields marked On file with a check, two highlighted missing fields with plain-language labels, and a disabled button explaining Complete 2 fields to continue." width="1200" height="1290" loading="lazy"></a><figcaption>After. Reconstruction with Kestrel UI and fictional data.</figcaption></figure>
+      <div>
+        <h2>After: same data, a different experience</h2>
+        <ul class="crit">
+          <li><b>Explicit progress.</b> “9 of 11” and a bar remove the uncertainty; “Jump to next missing” goes straight to the pending field.</li>
+          <li><b>Pre-filled data stands apart.</b> A check and an “On file” tag: applicants confirm instead of reviewing everything again.</li>
+          <li><b>What’s missing stands out.</b> Indigo border and focus, with a count per section (“2 fields need you”).</li>
+          <li><b>Industry in the applicant’s words.</b> Search by name; the NAICS code is secondary.</li>
+          <li><b>Month and year, no calendar.</b> Ask only for the detail that’s needed.</li>
+          <li><b>A disabled button that says why.</b> “Complete 2 fields to continue” explains what’s left.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="block">
+      <div class="prose measure"><h2>From form to offer in one session</h2></div>
+      <figure class="fig" style="margin-top: 24px;"><a class="fig-link" href="assets/img/c3-v6-one-pass.png"><img src="assets/img/c3-v6-one-pass.png" srcset="assets/img/c3-v6-one-pass-800.webp 800w, assets/img/c3-v6-one-pass-1600.webp 1600w, assets/img/c3-v6-one-pass.webp 2400w" sizes="(max-width: 1200px) calc(100vw - 48px), 1152px" alt="Three mobile screens with the partner’s brand: complete the two missing fields, connect a business bank account, and choose between three loan offers." width="2400" height="1360" loading="lazy"></a><figcaption>Mobile, with the partner’s brand on every step. Reconstruction with Kestrel UI and fictional data.</figcaption></figure>
+      <div class="steps3">
+        <p><b>1 · Complete:</b> only the missing fields are asked; the rest comes from the partner.</p>
+        <p><b>2 · Connect the bank:</b> Plaid inside the same flow, with no detour to another screen.</p>
+        <p><b>3 · Choose an offer:</b> the applicant finishes in the same session, without waiting for another email.</p>
+      </div>
+    </section>
+
+    <section class="block">
+      <div class="prose measure"><h2>One system, each partner’s brand</h2></div>
+      <figure class="fig" style="margin-top: 24px;"><a class="fig-link" href="assets/img/c3-v7-admin.png"><img src="assets/img/c3-v7-admin.png" srcset="assets/img/c3-v7-admin-800.webp 800w, assets/img/c3-v7-admin-1600.webp 1600w, assets/img/c3-v7-admin.webp 2400w" sizes="(max-width: 1200px) calc(100vw - 48px), 1152px" alt="Internal admin setting up a new partner: a four-step setup, a permissions table for agent and manager roles, invited users, and a white-label preview with the partner’s primary color and logo." width="2400" height="1580" loading="lazy"></a><figcaption>Internal admin: roles, permissions, invitations and white-label preview. Reconstruction with Kestrel UI and fictional data.</figcaption></figure>
+      <div class="prose measure">
+        <ul>
+          <li>Each partner sets its brand (primary color and logo), and applicants see it throughout the flow.</li>
+          <li>I coordinated the design system’s color and brand tokens with engineering, so white-label changed the brand without breaking components or contrast.</li>
+          <li>Agents and managers share one interface; permissions decide what each one sees.</li>
+          <li>Developer tools for deeper brand and experience customization were in QA when I left.</li>
+        </ul>
+        <p>The portal ran on the design system I built from scratch. How it was built, shipped and kept up to date is in <a href="case-01.html">the first case study</a>.</p>
+      </div>
+    </section>
+
+    <section class="block">
+      <div class="prose measure">
+        <h2>How I’d validate it</h2>
+        <p><span class="proposal">Proposal, not run in the project</span></p>
+        <p>We validated with research, bi-weekly demos and analytics, but not with formal usability tests. This is how I’d run them:</p>
+      </div>
+      <div class="cards four">
+        <div class="card"><span class="t">Who</span><p>5 participants per profile, following Nielsen: with 5 users most usability problems show up.</p></div>
+        <div class="card"><span class="t">How</span><p>Unmoderated tests with the Figma prototype: mobile for applicants, desktop for partners.</p></div>
+        <div class="card"><span class="t">Tasks</span><p>Complete a pre-filled application, find an application’s status, onboard a partner.</p></div>
+        <div class="card"><span class="t">Metrics</span><p>Success rate, time per task, drop-off by field, and SEQ (ease from 1 to 7 after each task).</p></div>
+      </div>
+      <p class="fine">Then I’d compare against Hotjar and Datadog in production, to confirm what tests show also happens with real users.</p>
+    </section>
 
     <div class="prose measure">
-      <h2>Outcome</h2>
-      <ul>
-        <li>More applicants completed their applications and fewer abandoned the form, observed after the changes but not formally measured.</li>
-        <li>The Director of Product named the partner portal one of the standout design wins of 2025.</li>
-      </ul>
-
+      <h2>What I learned</h2>
+      <p>Session recordings revealed a problem nobody had reported. Watching real use after launch mattered as much as the initial research.</p>
       <h2>What I’d do differently</h2>
-      <p>Instrument the pre-filled form from day one: completion rate and drop-off by field. We saw the improvement in recordings and in completed applications, but a funnel would have shown exactly which change mattered most.</p>
+      <p>Measure drop-off by field from day one, and add unmoderated usability tests before every major release.</p>
     </div>
-
 
     <section class="next">
       <p class="soon-note">Start again</p>
@@ -156,7 +235,7 @@
 <script>
 (() => {
   if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  const sel = '.work-item, .about > *, .fig, .fig-pair, .diagram, .prose, .note, .next';
+  const sel = '.work-item, .about > *, .fig, .fig-pair, .diagram, .prose, .note, .next, .cards, .dd-strip, .annotated';
   const els = [...document.querySelectorAll(sel)].filter(el => !el.parentElement.closest('.fig-pair'));
   els.forEach(el => el.classList.add('reveal'));
   const io = new IntersectionObserver(entries => {
