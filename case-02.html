@@ -102,9 +102,10 @@
     <section class="block">
       <div class="prose measure"><h2>Who we designed for</h2></div>
       <div class="cards" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
-        <div class="card"><span class="t">Operations agent</span><p><b>Goal:</b> process the day’s volume quickly and without errors, sure that each change hit the right account.</p><p><b>Frustration:</b> repeating the same cycle account by account, with a system that didn’t say what would happen, what failed or what they were allowed to do.</p></div>
-        <div class="card"><span class="t">Operations manager</span><p><b>Goal:</b> the team clears the day’s volume with control: what changed, what failed, and each agent doing only what they’re allowed to.</p><p><b>Frustration:</b> with no report per batch, errors showed up late and had to be checked account by account.</p></div>
+        <div class="card persona"><span class="t">Operations agent</span><p class="sub">Works through the day’s payment requests and account locks.</p><blockquote class="jtbd">“When I work through the day’s payment requests and account locks, I want to act on many accounts at once and see what will change, so I clear my volume quickly and know every change hit the right account.”</blockquote><p><b>Frustration:</b> repeating the same cycle account by account, with a system that didn’t say what would happen, what failed or what they were allowed to do.</p></div>
+        <div class="card persona"><span class="t">Operations manager</span><p class="sub">Oversees the team’s daily volume.</p><blockquote class="jtbd">“When my team processes the day’s volume, I want to see what changed and what failed in each batch, so I keep control without checking account by account.”</blockquote><p><b>Frustration:</b> with no report per batch, errors showed up late and had to be checked account by account.</p></div>
       </div>
+      <p class="fine">JTBD format: when [situation], I want [motivation], so [expected outcome].</p>
     </section>
 
     <section class="block">
@@ -120,11 +121,15 @@
 
     <section class="block">
       <div class="prose measure"><h2>Key challenges</h2></div>
-      <div style="margin-top: 24px;">
-        <div class="dd-strip"><div><p class="n">One account at a time</p><span class="res">One action per batch</span></div><ol class="phases"><li><span class="l">Discover</span>Observation and interviews: agents repeated the same cycle for every account.</li><li><span class="l">Define</span>Start with the most frequent tasks: payment requests and account locks.</li><li class="m"><span class="l">Develop</span>Select, then act: choose many accounts in the table and run a single action.</li><li class="m"><span class="l">Deliver</span>Bulk actions replaced one-by-one processing for both tasks, and shipped.</li></ol></div>
-        <div class="dd-strip"><div><p class="n">No clear feedback</p><span class="res">Checked before, reported after</span></div><ol class="phases"><li><span class="l">Discover</span>Observation and interviews: unclear outcomes, failures found late, permissions not explained.</li><li><span class="l">Define</span>Agents verify before and after each action; managers see what changed and what failed.</li><li class="m"><span class="l">Develop</span>Confirmation before, a result after, failures listed by account, disabled actions that explain why.</li><li class="m"><span class="l">Deliver</span>Shipped with the bulk actions; credited with significant efficiency gains.</li></ol></div>
+      <div class="rt-wrap">
+        <table class="rt"><caption class="sr-only">Two key challenges across the double diamond: discover, define as a how-might-we question, develop and deliver</caption>
+          <thead><tr><th scope="col">Challenge</th><th scope="col" class="ph-c">Discover</th><th scope="col" class="ph-c">Define · HMW</th><th scope="col" class="ph-m">Develop</th><th scope="col" class="ph-m">Deliver</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">One account at a time</th><td data-l="Discover">Observation and interviews: agents repeated the same cycle for every account.</td><td data-l="Define · HMW" class="hmw">How might we let agents act on many accounts at once without losing control?</td><td data-l="Develop">Select, then act: choose accounts in the table and run a single action.</td><td data-l="Deliver" class="out">Bulk actions replaced one-by-one processing for payment requests and account locks</td></tr>
+            <tr><th scope="row">No clear feedback</th><td data-l="Discover">Observation and interviews: unclear outcomes, failures found late, permissions not explained.</td><td data-l="Define · HMW" class="hmw">How might we show agents what will change, what failed and what they’re allowed to do?</td><td data-l="Develop">Confirmation before, a result after, failures listed by account, disabled actions that explain why.</td><td data-l="Deliver" class="out">Credited with significant efficiency gains in servicing</td></tr>
+          </tbody>
+        </table>
       </div>
-      <p class="dd-legend">Each challenge runs through the double diamond: Discover and Define in cobalt, Develop and Deliver in magenta.</p>
     </section>
 
     <section class="annotated">
@@ -185,10 +190,10 @@
         <p><span class="proposal">Proposal, not run in the project</span></p>
       </div>
       <div class="cards four">
-        <div class="card"><span class="t">Who</span><p>5 operations agents, following Nielsen: with 5 users most usability problems show up.</p></div>
+        <div class="card"><span class="t">Who</span><p>5 operations agents. Per Nielsen, 5 users of one profile find about 85% of usability problems.</p></div>
         <div class="card"><span class="t">How</span><p>Unmoderated tests with the prototype, on the desktop setup agents use.</p></div>
-        <div class="card"><span class="t">Tasks</span><p>Process a batch of payment requests, lock several accounts, find which accounts failed and why.</p></div>
-        <div class="card"><span class="t">Metrics</span><p>Success rate, time per task, errors on the wrong account, and SEQ (ease from 1 to 7 after each task).</p></div>
+        <div class="card"><span class="t">Tasks</span><ol class="nl"><li>Process a batch of payment requests.</li><li>Lock several accounts.</li><li>Find which accounts failed and why.</li></ol></div>
+        <div class="card"><span class="t">Metrics</span><ol class="nl"><li>Success rate.</li><li>Time per task.</li><li>Errors on the wrong account.</li><li>SEQ: perceived ease from 1 to 7.</li></ol></div>
       </div>
     </section>
 
@@ -245,7 +250,7 @@
 <script>
 (() => {
   if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  const sel = '.work-item, .about > *, .fig, .fig-pair, .diagram, .prose, .note, .next, .cards, .dd-strip, .annotated';
+  const sel = '.work-item, .about > *, .fig, .fig-pair, .diagram, .prose, .note, .next, .cards, .rt-wrap, .actors, .why, .annotated';
   const els = [...document.querySelectorAll(sel)].filter(el => !el.parentElement.closest('.fig-pair'));
   els.forEach(el => el.classList.add('reveal'));
   const io = new IntersectionObserver(entries => {

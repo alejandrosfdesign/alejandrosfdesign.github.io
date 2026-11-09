@@ -300,18 +300,6 @@ picture { display: block; }
 .prio .q.plan .lab { color: var(--cobalt); }
 .criteria { margin-top: 20px; font-size: 13px; color: var(--muted); display: grid; gap: 4px; }
 
-/* Double-diamond strip: one challenge through the four phases */
-.dd-strip { display: grid; grid-template-columns: minmax(0, 15rem) minmax(0, 1fr); gap: 28px; padding: 24px 0; border-top: 1px solid var(--ink); }
-.dd-strip:last-of-type { border-bottom: 1px solid var(--line); }
-.dd-strip .n { font-family: var(--serif); font-size: 24px; line-height: 1.15; color: var(--cobalt); }
-.dd-strip .res { display: block; margin-top: 8px; font-size: 12.5px; font-weight: 600; color: var(--magenta); }
-.phases { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; list-style: none; margin: 0; padding: 0; }
-.phases li { border-top: 4px solid var(--cobalt); padding-top: 10px; font-family: var(--sans); font-size: 14px; line-height: 1.5; }
-.phases li.m { border-top-color: var(--magenta); }
-.phases .l { display: block; font-family: var(--mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; font-weight: 600; color: var(--cobalt); margin-bottom: 4px; }
-.phases li.m .l { color: var(--magenta); }
-.dd-legend { margin-top: 14px; font-size: 12px; color: var(--muted); }
-
 /* Screen + annotations side by side (before / after) */
 .annotated { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 48px; align-items: start; margin: 48px 0; }
 .annotated figure { margin: 0; }
@@ -334,8 +322,6 @@ picture { display: block; }
   .cards.four.stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .card .t { white-space: normal; }
   .stat .t { font-size: 24px; }
-  .dd-strip { grid-template-columns: 1fr; gap: 16px; }
-  .phases { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 18px; }
   .annotated { grid-template-columns: 1fr; gap: 24px; }
   .annotated > div { order: -1; }
   .steps3 { grid-template-columns: 1fr; gap: 12px; }
@@ -350,3 +336,46 @@ picture { display: block; }
 .card.first { background: #fbe7ef; border-color: #e9b5c9; }
 .card.first .lab { color: var(--magenta); }
 @media (max-width: 800px) { .cards[style] { grid-template-columns: 1fr !important; } }
+
+/* ---------- Second round: context, challenge, JTBD, challenge table ---------- */
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.eyebrow { font-family: var(--mono); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin: 0 0 8px; }
+.prose h2.challenge { margin-top: 0; }
+.actors { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--ink); margin-top: 24px; }
+.actors > div { padding: 18px 28px 0 0; font-family: var(--sans); font-size: 15px; line-height: 1.55; }
+.actors > div + div { padding-left: 28px; border-left: 1px solid #d9d1c0; }
+.actors .l { display: block; font-family: var(--serif); font-size: 26px; line-height: 1.1; color: var(--cobalt); margin-bottom: 8px; }
+.why { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; margin: 24px 0 32px; font-family: var(--sans); font-size: 15px; line-height: 1.55; }
+.why h3, .sub-h { font-family: var(--mono); font-size: 13px; font-weight: 600; margin: 0 0 8px; }
+.sub-h { margin-bottom: 14px; }
+.plain { margin: 0; padding-left: 18px; display: grid; gap: 8px; }
+.plain b { font-weight: 600; }
+.card.persona { padding: 24px 26px; gap: 0; }
+.card.persona .t { margin-bottom: 4px; }
+.card.persona .sub { color: var(--muted); margin: 0 0 18px; }
+.jtbd { margin: 0 0 18px; padding: 2px 0 2px 14px; border-left: 2px solid var(--magenta); font-style: italic; color: #3d3832; line-height: 1.6; }
+.nl { margin: 0; padding-left: 20px; display: grid; gap: 3px; }
+.rt-wrap { margin-top: 24px; }
+.rt { width: 100%; border-collapse: collapse; table-layout: fixed; font-family: var(--sans); font-size: 14px; line-height: 1.55; }
+.rt thead th { text-align: left; font-family: var(--mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; font-weight: 600; color: var(--muted); padding: 10px 16px 10px 0; border-top: 4px solid transparent; border-bottom: 1px solid var(--ink); }
+.rt thead th:first-child { width: 17%; }
+.rt thead th.ph-c { border-top-color: var(--cobalt); color: var(--cobalt); }
+.rt thead th.ph-m { border-top-color: var(--magenta); color: var(--magenta); }
+.rt tbody th, .rt tbody td { vertical-align: top; text-align: left; padding: 22px 16px 22px 0; border-bottom: 1px solid #e2dccd; }
+.rt tbody th { font-family: var(--serif); font-weight: 400; font-size: 21px; line-height: 1.15; color: var(--cobalt); }
+.rt .hmw { font-style: italic; }
+.rt .out { font-weight: 600; color: var(--magenta); }
+@media (max-width: 800px) {
+  .actors { grid-template-columns: 1fr; }
+  .actors > div { padding: 16px 0; }
+  .actors > div + div { padding-left: 0; border-left: 0; border-top: 1px solid #d9d1c0; }
+  .why { grid-template-columns: 1fr; gap: 20px; }
+  .rt, .rt tbody, .rt tr, .rt th, .rt td { display: block; width: 100%; }
+  .rt thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .rt tbody tr { border-top: 1px solid var(--ink); padding: 18px 0 6px; }
+  .rt tbody th { padding: 0 0 12px; border: 0; }
+  .rt tbody td { padding: 10px 0 10px 14px; border: 0; border-left: 3px solid var(--cobalt); margin-bottom: 10px; }
+  .rt tbody td:nth-of-type(n+3) { border-left-color: var(--magenta); }
+  .rt tbody td::before { content: attr(data-l); display: block; font-family: var(--mono); font-style: normal; font-weight: 600; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 2px; }
+}
+.measure h2.challenge { width: max-content; max-width: calc(100vw - 48px); }

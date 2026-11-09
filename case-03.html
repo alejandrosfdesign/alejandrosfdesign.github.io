@@ -65,26 +65,45 @@
 
     <section class="block">
       <div class="prose measure">
-        <h2>The problem</h2>
-        <p>Quantum ran small-business lending for 250+ partners such as US Bank and SoFi. Growth ran into three problems:</p>
+        <h2>Context</h2>
+        <p>Quantum Lending Solutions is a US lending fintech. It makes loans to small and medium businesses that reach it through a network of 250+ partners: banks and fintechs such as US Bank and SoFi.</p>
       </div>
+      <div class="actors" role="list" aria-label="Who takes part">
+        <div role="listitem"><span class="l">Partners</span><p>Banks and fintechs. Their agents refer customers; their manager oversees the pipeline and commissions.</p></div>
+        <div role="listitem"><span class="l">Applicants</span><p>Small-business owners. They receive a pre-filled application with their partner’s brand and complete it.</p></div>
+        <div role="listitem"><span class="l">Quantum operations</span><p>Onboards each partner, sets up users and branding, and runs the loans.</p></div>
+      </div>
+    </section>
+
+    <section class="block">
+      <div class="prose measure">
+        <p class="eyebrow">The challenge</p>
+        <h2 class="challenge">Optimize partner onboarding and operations</h2>
+        <p>From the moment a partner joins until its applicants complete their application.</p>
+      </div>
+      <div class="why">
+        <div><h3>Why it matters to users</h3><p>Operations activates partners without depending on engineering, partners follow their pipeline without email, and applicants finish quickly.</p></div>
+        <div><h3>Why it matters to the business</h3><p>Every day an onboarding takes is a day without applications from that partner, and every abandoned application is a loan that isn’t made.</p></div>
+      </div>
+      <h3 class="sub-h">Frictions found</h3>
       <div class="cards">
-        <div class="card"><span class="t">Slow onboarding</span><p>Setting up a partner took days and depended on engineering.</p><span class="src">Found in: definition sessions with operations</span></div>
+        <div class="card"><span class="t">Slow onboarding</span><p>Setting up a partner took 1–2 days and depended on engineering.</p><span class="src">Found in: definition sessions with operations</span></div>
         <div class="card"><span class="t">Status by email</span><p>Partners chased application status by email, with no view of their commissions.</p><span class="src">Found in: sessions with partners and operations</span></div>
-        <div class="card"><span class="t">~30% abandonment</span><p>About 3 in 10 applicants abandoned the pre-filled form.</p><span class="src">Found in: session recordings and analytics (Hotjar and Datadog)</span></div>
+        <div class="card"><span class="t">~30% abandonment</span><p>About 3 in 10 applicants abandoned the pre-filled form.</p><span class="src">Found in: Hotjar and Datadog</span></div>
       </div>
     </section>
 
     <section class="block">
       <div class="prose measure">
         <h2>Who we designed for</h2>
-        <p>Personas built from research with all three groups, documented in the company’s Confluence.</p>
+        <p>Personas and their jobs to be done, based on research with all three groups, documented in the company’s Confluence.</p>
       </div>
       <div class="cards">
-        <div class="card"><span class="t">Operations</span><p>Quantum operations or partnerships agent. Works in the internal admin.</p><p><b>Goal:</b> onboard a partner quickly and without errors.</p><p><b>Frustration:</b> scattered setup, permission errors found late, depending on engineering.</p></div>
-        <div class="card"><span class="t">Partner manager</span><p>A bank or fintech lead who oversees a team of agents.</p><p><b>Goal:</b> see their pipeline and control what each agent sees.</p><p><b>Frustration:</b> chasing status by email, with no view of commissions.</p></div>
-        <div class="card"><span class="t">Applicant</span><p>A US small-business owner, often on a phone and short on time.</p><p><b>Goal:</b> finish fast and understand what’s missing.</p><p><b>Frustration:</b> a half-filled form and technical language.</p></div>
+        <div class="card persona"><span class="t">Operations</span><p class="sub">Quantum operations or partnerships agent.</p><blockquote class="jtbd">“When a new partner signs, I want to set it up with its users, roles and brand in a single flow, so it can start operating without depending on engineering.”</blockquote><p><b>Frustration:</b> scattered setup and permission errors that surfaced late.</p></div>
+        <div class="card persona"><span class="t">Partner manager</span><p class="sub">Oversees the bank’s or fintech’s team of agents.</p><blockquote class="jtbd">“When my team submits applications, I want to see their status and my commissions in one place, so I can follow up without chasing emails.”</blockquote><p><b>Frustration:</b> chasing status by email, with no view of commissions.</p></div>
+        <div class="card persona"><span class="t">Applicant</span><p class="sub">A small-business owner, often on a phone.</p><blockquote class="jtbd">“When my partner has already pre-filled my application, I want to see only what’s missing, so I can finish quickly in one session.”</blockquote><p><b>Frustration:</b> a half-filled form and technical language.</p></div>
       </div>
+      <p class="fine">JTBD format: when [situation], I want [motivation], so [expected outcome].</p>
     </section>
 
     <section class="block">
@@ -92,16 +111,14 @@
       <div class="cards four stats">
         <div class="card stat"><span class="t">1–2 days → 4 h</span><p>to onboard a partner (approx.)</p></div>
         <div class="card stat"><span class="t">~30% → ~17%</span><p>form abandonment (approx.)</p></div>
-        <div class="card stat"><span class="t">250+</span><p>partners on the portal</p></div>
+        <div class="card stat"><span class="t">1 portal</span><p>standardized experience for 250+ partners</p></div>
         <div class="card stat"><span class="t">2025</span><p>standout design win, per the Director of Product</p></div>
       </div>
-      <p class="fine">Approximate figures observed in production with Hotjar and Datadog, not from a formal study.</p>
-      <div class="prose measure" style="margin-top: 24px;">
-        <ul>
-          <li>Application tracking moved from email into the portal, and fewer applications came back for missing data.</li>
-          <li>Consistent positive feedback from US Bank, and recognition for the design team in bi-weekly demos.</li>
-        </ul>
+      <div class="why" style="margin-top: 28px;">
+        <div><h3>Also</h3><ul class="plain"><li><b>Data integration:</b> application tracking and statuses are integrated into the portal.</li><li><b>Data standardization:</b> fewer applications returned for incomplete data.</li><li><b>Agility:</b> less time to complete the application.</li></ul></div>
+        <div><h3>Recognition</h3><ul class="plain"><li>Consistent positive feedback from US Bank.</li><li>Recognition for the design team in bi-weekly demos for its work with stakeholders.</li></ul></div>
       </div>
+      <p class="fine">Approximate figures observed in production with Hotjar and Datadog, not from a formal study.</p>
     </section>
 
     <div class="prose measure">
@@ -129,13 +146,17 @@
 
     <section class="block">
       <div class="prose measure"><h2>Key challenges</h2></div>
-      <div style="margin-top: 24px;">
-        <div class="dd-strip"><div><p class="n">The pre-filled form was abandoned</p><span class="res">~30% → ~17% abandonment</span></div><ol class="phases"><li><span class="l">Discover</span>Hotjar and Datadog: applicants couldn’t find the few fields only they could fill in.</li><li><span class="l">Define</span>“Do now”: every abandoned form was an application lost for the partner.</li><li class="m"><span class="l">Develop</span>A jump to the next missing field, visible progress, and a one-pass flow with Plaid.</li><li class="m"><span class="l">Deliver</span>Abandonment from ~30% to ~17% (approx.), measured again in Hotjar and Datadog.</li></ol></div>
-        <div class="dd-strip"><div><p class="n">Partner onboarding depended on engineering</p><span class="res">1–2 days → 4 hours</span></div><ol class="phases"><li><span class="l">Discover</span>Sessions with operations: scattered setup and permission errors that surfaced late.</li><li><span class="l">Define</span>Let operations onboard a partner on their own, in a guided flow with no technical changes.</li><li class="m"><span class="l">Develop</span>An internal admin to set up the partner, users, roles and white-label branding.</li><li class="m"><span class="l">Deliver</span>Onboarding went from 1–2 days to about 4 hours (approx.).</li></ol></div>
-        <div class="dd-strip"><div><p class="n">One portal, users with different permissions</p><span class="res">One base for 250+ partners</span></div><ol class="phases"><li><span class="l">Discover</span>Sessions with partners: agents and managers needed to see different things, especially commissions.</li><li><span class="l">Define</span>One system with roles, not separate products per type of user.</li><li class="m"><span class="l">Develop</span>Managers manage commissions; agents see them read-only. Permissions per partner.</li><li class="m"><span class="l">Deliver</span>250+ partners running on the same base.</li></ol></div>
-        <div class="dd-strip"><div><p class="n">Clarity versus compliance</p><span class="res">Clearer, same compliance</span></div><ol class="phases"><li><span class="l">Discover</span>Session recordings: technical language, but much of the wording was required by compliance.</li><li><span class="l">Define</span>Change only what wasn’t mandatory wording.</li><li class="m"><span class="l">Develop</span>We worked with compliance: removed jargon and reordered fields into a logical sequence.</li><li class="m"><span class="l">Deliver</span>Clearer questions without losing compliance.</li></ol></div>
+      <div class="rt-wrap">
+        <table class="rt"><caption class="sr-only">Four key challenges across the double diamond: discover, define as a how-might-we question, develop and deliver</caption>
+          <thead><tr><th scope="col">Challenge</th><th scope="col" class="ph-c">Discover</th><th scope="col" class="ph-c">Define · HMW</th><th scope="col" class="ph-m">Develop</th><th scope="col" class="ph-m">Deliver</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Partner onboarding depended on engineering</th><td data-l="Discover">Sessions with operations: scattered setup and permission errors found late.</td><td data-l="Define · HMW" class="hmw">How might we let operations onboard a partner without depending on engineering?</td><td data-l="Develop">An internal admin with a guided flow: partner, users, roles and white-label brand.</td><td data-l="Deliver" class="out">From 1–2 days to ~4 hours (approx.)</td></tr>
+            <tr><th scope="row">The pre-filled form was abandoned</th><td data-l="Discover">Hotjar and Datadog: applicants couldn’t find the few fields only they could fill in.</td><td data-l="Define · HMW" class="hmw">How might we take applicants straight to what’s missing?</td><td data-l="Develop">Jump to the next missing field, visible progress, and a single flow with Plaid.</td><td data-l="Deliver" class="out">Abandonment from ~30% to ~17% (approx.)</td></tr>
+            <tr><th scope="row">One portal, users with different permissions</th><td data-l="Discover">Sessions with partners: agents and managers needed to see different things.</td><td data-l="Define · HMW" class="hmw">How might we serve both roles in one portal without exposing what isn’t theirs?</td><td data-l="Develop">Roles: managers manage commissions; agents can only view them.</td><td data-l="Deliver" class="out">A standardized experience for 250+ partners</td></tr>
+            <tr><th scope="row">Clarity versus compliance</th><td data-l="Discover">Session recordings: technical language, partly required by compliance.</td><td data-l="Define · HMW" class="hmw">How might we make the form clearer without touching mandatory wording?</td><td data-l="Develop">We worked with compliance: less jargon and fields in a logical sequence.</td><td data-l="Deliver" class="out">Clearer questions, same compliance</td></tr>
+          </tbody>
+        </table>
       </div>
-      <p class="dd-legend">Each challenge runs through the double diamond: Discover and Define in cobalt, Develop and Deliver in magenta.</p>
     </section>
 
     <section class="annotated">
@@ -199,10 +220,10 @@
         <p>We validated with research, bi-weekly demos and analytics, but not with formal usability tests. This is how I’d run them:</p>
       </div>
       <div class="cards four">
-        <div class="card"><span class="t">Who</span><p>5 participants per profile, following Nielsen: with 5 users most usability problems show up.</p></div>
+        <div class="card"><span class="t">Who</span><p>5 participants per profile. Per Nielsen, 5 users of one profile find about 85% of usability problems.</p></div>
         <div class="card"><span class="t">How</span><p>Unmoderated tests with the Figma prototype: mobile for applicants, desktop for partners.</p></div>
-        <div class="card"><span class="t">Tasks</span><p>Complete a pre-filled application, find an application’s status, onboard a partner.</p></div>
-        <div class="card"><span class="t">Metrics</span><p>Success rate, time per task, drop-off by field, and SEQ (ease from 1 to 7 after each task).</p></div>
+        <div class="card"><span class="t">Tasks</span><ol class="nl"><li>Complete a pre-filled application.</li><li>Find an application’s status.</li><li>Onboard a partner.</li></ol></div>
+        <div class="card"><span class="t">Metrics</span><ol class="nl"><li>Success rate.</li><li>Time per task.</li><li>Drop-off by field.</li><li>SEQ: perceived ease from 1 to 7.</li></ol></div>
       </div>
       <p class="fine">Then I’d compare against Hotjar and Datadog in production, to confirm what tests show also happens with real users.</p>
     </section>
@@ -235,7 +256,7 @@
 <script>
 (() => {
   if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  const sel = '.work-item, .about > *, .fig, .fig-pair, .diagram, .prose, .note, .next, .cards, .dd-strip, .annotated';
+  const sel = '.work-item, .about > *, .fig, .fig-pair, .diagram, .prose, .note, .next, .cards, .rt-wrap, .actors, .why, .annotated';
   const els = [...document.querySelectorAll(sel)].filter(el => !el.parentElement.closest('.fig-pair'));
   els.forEach(el => el.classList.add('reveal'));
   const io = new IntersectionObserver(entries => {

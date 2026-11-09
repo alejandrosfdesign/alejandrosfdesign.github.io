@@ -80,9 +80,25 @@
         <h2>Who the system served</h2>
       </div>
       <div class="cards">
-        <div class="card"><span class="t">Designer</span><p>Designs with the kit’s components and tokens, and prototypes with AI inside the system.</p><p><b>Needs:</b> one source of truth, so new screens don’t reinvent components.</p></div>
-        <div class="card"><span class="t">Engineer</span><p>Builds from blueprints into the coded library, with visual review in Chromatic.</p><p><b>Needs:</b> documented anatomy and states, so code matches design without back-and-forth.</p></div>
-        <div class="card"><span class="t">PM or stakeholder</span><p>Reviews early iterations and decides what moves forward.</p><p><b>Needs:</b> something tangible to react to early, that can actually be built.</p></div>
+        <div class="card persona"><span class="t">Designer</span><p class="sub">Designs and prototypes with the kit.</p><blockquote class="jtbd">“When I start a new screen, I want components and tokens I can trust, so I don’t reinvent what already exists.”</blockquote><p><b>Frustration:</b> no shared components between design and engineering.</p></div>
+        <div class="card persona"><span class="t">Engineer</span><p class="sub">Builds components into the coded library.</p><blockquote class="jtbd">“When I build a component, I want its anatomy and states documented, so code matches design without back-and-forth.”</blockquote><p><b>Frustration:</b> handoff depended on scattered conversations.</p></div>
+        <div class="card persona"><span class="t">PM or stakeholder</span><p class="sub">Reviews iterations and decides what moves forward.</p><blockquote class="jtbd">“When a feature is still being defined, I want to see a first iteration early, so I can give feedback on something that can actually be built.”</blockquote><p><b>Frustration:</b> a first design took about a week (my estimate).</p></div>
+      </div>
+      <p class="fine">JTBD format: when [situation], I want [motivation], so [expected outcome].</p>
+    </section>
+
+    <section class="block">
+      <div class="prose measure"><h2>Key challenges</h2></div>
+      <div class="rt-wrap">
+        <table class="rt"><caption class="sr-only">Four key challenges across the double diamond: discover, define as a how-might-we question, develop and deliver</caption>
+          <thead><tr><th scope="col">Challenge</th><th scope="col" class="ph-c">Discover</th><th scope="col" class="ph-c">Define · HMW</th><th scope="col" class="ph-m">Develop</th><th scope="col" class="ph-m">Deliver</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">No shared components</th><td data-l="Discover">Design and engineering had no shared components; handoff depended on scattered conversations.</td><td data-l="Define · HMW" class="hmw">How might we give design and engineering one source of truth?</td><td data-l="Develop">Tokens first, then documented components, built by engineering as a coded library; Chromatic as the approval gate.</td><td data-l="Deliver" class="out">One coded library across every product</td></tr>
+            <tr><th scope="row">Each partner’s brand</th><td data-l="Discover">The partner portal had to carry each partner’s brand.</td><td data-l="Define · HMW" class="hmw">How might we apply each partner’s brand without forking components?</td><td data-l="Develop">Brand tokens coordinated with engineering: each partner sets its primary color and logo.</td><td data-l="Deliver" class="out">Brand changes without breaking components or contrast</td></tr>
+            <tr><th scope="row">AI outside the system</th><td data-l="Discover">AI tools produced screens fast, but invented components, colors and spacing.</td><td data-l="Define · HMW" class="hmw">How might we let AI prototype fast without leaving the system?</td><td data-l="Develop">Claude and Claude Design connected to the UI Kit, with checkable rules; anything new is documented first.</td><td data-l="Deliver" class="out">Tasks from ~1 week to 2–3 days (my estimate)</td></tr>
+            <tr><th scope="row">A system that falls behind</th><td data-l="Discover">Patterns kept repeating across prototypes that weren’t in the system.</td><td data-l="Define · HMW" class="hmw">How might we keep the system current as teams build new things?</td><td data-l="Develop">A Claude agent audits prototypes every 2 weeks and documents canonical candidates in the Figma file.</td><td data-l="Deliver" class="out">Tables and cards became canonical</td></tr>
+          </tbody>
+        </table>
       </div>
     </section>
 
@@ -282,7 +298,7 @@
 <script>
 (() => {
   if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  const sel = '.work-item, .about > *, .fig, .fig-pair, .diagram, .prose, .note, .next, .cards, .dd-strip, .annotated';
+  const sel = '.work-item, .about > *, .fig, .fig-pair, .diagram, .prose, .note, .next, .cards, .rt-wrap, .actors, .why, .annotated';
   const els = [...document.querySelectorAll(sel)].filter(el => !el.parentElement.closest('.fig-pair'));
   els.forEach(el => el.classList.add('reveal'));
   const io = new IntersectionObserver(entries => {
