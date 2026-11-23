@@ -379,3 +379,15 @@ picture { display: block; }
   .rt tbody td::before { content: attr(data-l); display: block; font-family: var(--mono); font-style: normal; font-weight: 600; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 2px; }
 }
 .measure h2.challenge { width: max-content; max-width: calc(100vw - 48px); }
+
+/* Language switcher */
+.lang-switch { display: inline-flex; align-items: baseline; gap: 6px; font-family: var(--mono); font-size: 13px; letter-spacing: .06em; }
+.lang-switch a { color: var(--muted); text-decoration: none; padding: 2px 0; }
+.lang-switch span { color: var(--muted); }
+.lang-switch a[aria-current="page"] { color: var(--ink); font-weight: 600; border-bottom: 2px solid var(--magenta); }
+.lang-switch a:not([aria-current]):hover { color: var(--cobalt); text-decoration: underline; }
+@media (max-width: 700px) {
+  .site-head .wrap:first-child { position: relative; }
+  .site-head .lang-switch { position: absolute; top: 4px; right: 0; }
+  .site-nav { gap: 18px; }
+}
