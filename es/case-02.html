@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Convertir operaciones una por una en acciones masivas seguras — Alejandro Sánchez Fernández</title>
+<meta name="description" content="Caso de estudio: la plataforma de servicing y las acciones masivas que reemplazaron el trabajo cuenta por cuenta de un equipo de operaciones de crédito.">
+<link rel="canonical" href="https://alejandrosfdesign.github.io/es/case-02.html">
+<link rel="alternate" hreflang="en" href="https://alejandrosfdesign.github.io/case-02.html">
+<link rel="alternate" hreflang="es" href="https://alejandrosfdesign.github.io/es/case-02.html">
+<link rel="alternate" hreflang="x-default" href="https://alejandrosfdesign.github.io/case-02.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Alejandro Sánchez Fernández">
+<meta property="og:title" content="Convertir operaciones una por una en acciones masivas seguras">
+<meta property="og:description" content="Caso de estudio: la plataforma de servicing y las acciones masivas que reemplazaron el trabajo cuenta por cuenta de un equipo de operaciones de crédito.">
+<meta property="og:url" content="https://alejandrosfdesign.github.io/es/case-02.html">
+<meta property="og:locale" content="es_MX">
+<meta property="og:image" content="https://alejandrosfdesign.github.io/assets/og/og-case-02-es.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Convertir operaciones una por una en acciones masivas seguras">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<script>document.documentElement.classList.add("js")</script>
+<link rel="stylesheet" href="../assets/style.css?v=12">
+<link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../assets/icons/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../assets/icons/apple-touch-icon.png">
+</head>
+<body>
+<a class="skip" href="#main">Saltar al contenido</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="site-name" href="index.html">Alejandro Sánchez Fernández</a>
+    <nav class="site-nav" aria-label="Principal">
+      <a href="index.html#work">Trabajo</a>
+      <a href="index.html#about">Sobre mí</a>
+      <a href="../cv/Alejandro-Sanchez-Fernandez-CV-ES.pdf">CV (PDF)</a>
+      <a href="https://www.linkedin.com/in/alejandrokraken">LinkedIn</a>
+      <span class="lang-switch" aria-label="Idioma"><a href="../case-02.html" lang="en" hreflang="en">EN</a><span aria-hidden="true">·</span><a href="case-02.html" lang="es" hreflang="es" aria-current="page">ES</a></span>
+    </nav>
+  </div>
+  <div class="wrap rule" aria-hidden="true" style="margin-top: 20px;"></div>
+</header>
+
+<main id="main">
+  <section class="case-hero">
+    <div class="wrap intro">
+      <a class="back" href="index.html#work">Todo el trabajo</a>
+      <h1>Convertir operaciones <span style="white-space: nowrap">una por una</span> en acciones masivas seguras</h1>
+      <p class="lede">Los agentes de operaciones procesaban solicitudes de pago y bloqueos de cuenta una cuenta a la vez. Diseñé la plataforma de servicing en la que trabajan y las acciones masivas que reemplazaron ese trabajo.</p>
+      <dl class="facts">
+        <div><dt>Rol</dt><dd>Product design, del mapeo de flujos de trabajo a la UI en producción</dd></div>
+        <div><dt>Equipo</dt><dd>2 diseñadores, ~8 ingenieros, Director de Producto</dd></div>
+        <div><dt>Periodo</dt><dd>2023–2025</dd></div>
+        <div><dt>Usuarios</dt><dd>40–50 personas de operaciones y underwriting</dd></div>
+      </dl>
+      <p class="kestrel-note">Los visuales son reconstrucciones hechas con Kestrel UI, una marca ficticia con datos ficticios. Muestran los principios del trabajo, no las pantallas reales de la empresa.</p>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <figure class="fig">
+      <a class="fig-link" href="../assets/img/c2-v2-selectable-table.png"><picture><source media="(max-width: 700px)" type="image/webp" srcset="../assets/img/c2-v2-selectable-table-m.webp 857w" sizes="calc(100vw - 48px)"><source media="(max-width: 700px)" srcset="../assets/img/c2-v2-selectable-table-m.png"><img src="../assets/img/c2-v2-selectable-table.png" srcset="../assets/img/c2-v2-selectable-table-800.webp 800w, ../assets/img/c2-v2-selectable-table-1600.webp 1600w, ../assets/img/c2-v2-selectable-table.webp 2308w" sizes="(max-width: 1200px) calc(100vw - 48px), 1152px" alt="Una tabla operativa con tres filas seleccionadas y una barra de acciones masivas que muestra 3 selected, Clear selection, Export y Mark as reviewed." width="2308" height="1048"></picture></a>
+      <figcaption>Seleccionar y luego actuar: las filas seleccionadas llevan un marcador y un fondo tintado, y la barra masiva mantiene un conteo en vivo.</figcaption>
+    </figure>
+
+    <div class="prose measure">
+      <h2>Contexto</h2>
+      <p>Dar servicing a un solo préstamo PyME implicaba saltar entre herramientas separadas: resúmenes de cuenta, solicitudes, documentos y análisis de flujo de efectivo vivían cada uno en su propio lugar. Quantum Hub los reunió en una sola plataforma, y yo diseñé sus fundamentos de UI.</p>
+
+    </div>
+
+    <section class="block">
+      <div class="prose measure">
+        <h2>El problema</h2>
+        <p>Los agentes manejaban alrededor de 70 cuentas al día (estimación mía). Los entrevisté y observé directamente, y realicé sesiones con stakeholders de operaciones para mapear cómo trabajaban en realidad. Surgieron dos problemas:</p>
+      </div>
+      <div class="cards" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
+        <div class="card"><span class="t">Una cuenta a la vez</span><p>Las solicitudes de pago y los bloqueos de cuenta se procesaban uno por uno: abrir, revisar, actuar, confirmar, volver a la lista.</p><span class="src">Detectado en: observación y entrevistas</span></div>
+        <div class="card"><span class="t">Sin feedback claro</span><p>Las herramientas no decían con claridad qué iba a pasar, qué había fallado ni qué tenía permitido hacer el agente.</p><span class="src">Detectado en: observación y entrevistas</span></div>
+      </div>
+    </section>
+
+    <div class="diagram" role="figure" aria-label="Procesamiento de cuentas antes y después de las acciones masivas">
+      <p class="title">Una cuenta a la vez, luego todas de una</p>
+      <p class="row-label">Antes, repetido por cada cuenta</p>
+      <ol class="flow">
+        <li><div class="step">Abrir la cuenta</div></li>
+        <li><div class="step">Revisarla</div></li>
+        <li><div class="step">Actuar sobre ella</div></li>
+        <li><div class="step">Confirmar</div></li>
+        <li><div class="step">Volver a la lista</div></li>
+      </ol>
+      <p class="row-label">Después, una vez por lote</p>
+      <ol class="flow">
+        <li><div class="step">Seleccionar las cuentas</div></li>
+        <li><div class="step gate">Actuar una vez<small>Una acción masiva</small></div></li>
+        <li><div class="step">Confirmar</div></li>
+        <li><div class="step">Revisar el resultado<small>Fallas listadas</small></div></li>
+      </ol>
+    </div>
+
+    <section class="block">
+      <div class="prose measure"><h2>Para quién diseñamos</h2></div>
+      <div class="cards" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
+        <div class="card persona"><span class="t">Agente de operaciones</span><p class="sub">Trabaja las solicitudes de pago y los bloqueos de cuenta del día.</p><blockquote class="jtbd">“Cuando trabajo las solicitudes de pago y los bloqueos de cuenta del día, quiero actuar sobre muchas cuentas a la vez y ver qué va a cambiar, para sacar mi volumen rápido y saber que cada cambio llegó a la cuenta correcta.”</blockquote><p><b>Frustración:</b> repetir el mismo ciclo cuenta por cuenta, con un sistema que no decía qué iba a pasar, qué falló ni qué tenía permitido hacer.</p></div>
+        <div class="card persona"><span class="t">Manager de operaciones</span><p class="sub">Supervisa el volumen diario del equipo.</p><blockquote class="jtbd">“Cuando mi equipo procesa el volumen del día, quiero ver qué cambió y qué falló en cada lote, para mantener el control sin revisar cuenta por cuenta.”</blockquote><p><b>Frustración:</b> sin reporte por lote, los errores aparecían tarde y había que revisarlos cuenta por cuenta.</p></div>
+      </div>
+      <p class="fine">Formato JTBD: cuando [situación], quiero [motivación], para [resultado esperado].</p>
+    </section>
+
+    <section class="block">
+      <div class="prose measure">
+        <h2>Qué fue primero</h2>
+        <p>Priorizamos según la frecuencia de cada tarea. También llegaba feedback continuo a través de los managers de operaciones, y nuestro equipo de diseño lo convertía en tickets propios.</p>
+      </div>
+      <div class="cards" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
+        <div class="card first"><span class="lab">Primero</span><p><b>Solicitudes de pago</b> y <b>bloqueos de cuenta</b>: el volumen principal.</p></div>
+        <div class="card"><span class="lab">También compitiendo</span><p><b>Solicitudes de retiro</b>, y <b>aprobaciones y rechazos</b> de solicitudes en curso.</p></div>
+      </div>
+    </section>
+
+    <section class="block">
+      <div class="prose measure"><h2>Retos clave</h2></div>
+      <div class="rt-wrap">
+        <table class="rt"><caption class="sr-only">Dos retos clave a lo largo del doble diamante: descubrir, definir como pregunta HMW, desarrollar y entregar</caption>
+          <thead><tr><th scope="col">Reto</th><th scope="col" class="ph-c">Descubrir</th><th scope="col" class="ph-c">Definir · HMW</th><th scope="col" class="ph-m">Desarrollar</th><th scope="col" class="ph-m">Entregar</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Una cuenta a la vez</th><td data-l="Descubrir">Observación y entrevistas: los agentes repetían el mismo ciclo por cada cuenta.</td><td data-l="Definir · HMW" class="hmw">¿Cómo podríamos permitir que los agentes actúen sobre muchas cuentas a la vez sin perder el control?</td><td data-l="Desarrollar">Seleccionar y luego actuar: elegir cuentas en la tabla y ejecutar una sola acción.</td><td data-l="Entregar" class="out">Las acciones masivas reemplazaron el procesamiento uno por uno de solicitudes de pago y bloqueos de cuenta</td></tr>
+            <tr><th scope="row">Sin feedback claro</th><td data-l="Descubrir">Observación y entrevistas: resultados poco claros, fallas detectadas tarde, permisos sin explicar.</td><td data-l="Definir · HMW" class="hmw">¿Cómo podríamos mostrarles a los agentes qué va a cambiar, qué falló y qué tienen permitido hacer?</td><td data-l="Desarrollar">Confirmación antes, resultado después, fallas listadas por cuenta y acciones deshabilitadas que explican por qué.</td><td data-l="Entregar" class="out">Reconocidas por mejoras significativas de eficiencia en servicing</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="annotated">
+      <figure><a class="fig-link" href="../assets/img/c2-v1-before.png"><img src="../assets/img/c2-v1-before.png" srcset="../assets/img/c2-v1-before-800.webp 800w, ../assets/img/c2-v1-before.webp 1520w" sizes="(max-width: 800px) calc(100vw - 48px), 520px" alt="Pantalla de detalle de cuenta antes de las acciones masivas, con cuatro marcadores numerados: un enlace Back to accounts, un botón Process, un botón Lock account deshabilitado y un toast de error genérico." width="1520" height="886" loading="lazy"></a><figcaption>Antes. Reconstrucción con Kestrel UI y datos ficticios.</figcaption></figure>
+      <div>
+        <h2>Antes: un registro a la vez</h2>
+        <ol class="issues">
+          <li><b>De vuelta a la lista, cada vez.</b> Actuar sobre una cuenta implicaba abrirla y luego regresar a la lista por la siguiente.</li>
+          <li><b>Una acción que no decía qué iba a hacer.</b> Sin resumen de lo que estaba por cambiar antes de ejecutarla.</li>
+          <li><b>Restricciones sin motivo.</b> El agente no sabía por qué una acción no estaba disponible.</li>
+          <li><b>Un solo mensaje para el resultado.</b> Cuando algo fallaba, el agente no sabía qué ni por qué.</li>
+        </ol>
+      </div>
+    </section>
+
+    <div class="prose measure">
+      <h2>Decisiones</h2>
+      <div class="decisions">
+        <div class="decision">
+          <h3>Seleccionar y luego actuar</h3>
+          <p>Los agentes eligen muchas cuentas en la tabla y ejecutan una sola acción, en lugar de abrir cada registro.</p>
+        </div>
+        <div class="decision">
+          <h3>Preguntar antes, reportar después</h3>
+          <p>Cada acción masiva pedía confirmación antes de ejecutarse y reportaba el resultado después, para que los agentes verificaran lo que estaban por cambiar y lo que realmente cambió.</p>
+        </div>
+      </div>
+    </div>
+
+    <figure class="fig">
+      <a class="fig-link" href="../assets/img/c2-v3-confirm-report.png"><img src="../assets/img/c2-v3-confirm-report.png" srcset="../assets/img/c2-v3-confirm-report-800.webp 800w, ../assets/img/c2-v3-confirm-report-1600.webp 1600w, ../assets/img/c2-v3-confirm-report.webp 3178w" sizes="(max-width: 1200px) calc(100vw - 48px), 1152px" alt="Tres pasos: la barra de acciones masivas, un modal de confirmación que resume 3 registros y el monto total, y un toast de éxito con Undo." width="3178" height="824" loading="lazy"></a>
+      <figcaption>Preguntar antes, reportar después. En esta reconstrucción, cada paso repite el mismo verbo y las mismas cifras para que el agente pueda verificarlos.</figcaption>
+    </figure>
+
+    <div class="prose measure">
+      <div class="decisions">
+        <div class="decision">
+          <h3>Las fallas quedan visibles</h3>
+          <p>Cuando algunas cuentas fallaban, el resultado listaba cuáles, en lugar de reportar un solo éxito o un solo error para todo el lote.</p>
+        </div>
+        <div class="decision">
+          <h3>Permisos a la vista</h3>
+          <p>Las acciones que un agente no podía realizar aparecían deshabilitadas, con un tooltip que explicaba la restricción.</p>
+        </div>
+      </div>
+
+      <h2>Resultados</h2>
+      <ul>
+        <li>Las acciones masivas reemplazaron el procesamiento uno por uno de solicitudes de pago y bloqueos de cuenta, y salieron a producción.</li>
+        <li>El Director de Producto les atribuyó mejoras significativas de eficiencia en los flujos de servicing.</li>
+      </ul>
+
+    </div>
+
+    <section class="block">
+      <div class="prose measure">
+        <h2>Cómo lo validaría</h2>
+        <p><span class="proposal">Propuesta, no ejecutada en el proyecto</span></p>
+      </div>
+      <div class="cards four">
+        <div class="card"><span class="t">Quiénes</span><p>5 agentes de operaciones. Según Nielsen, 5 usuarios de un mismo perfil detectan cerca del 85% de los problemas de usabilidad.</p></div>
+        <div class="card"><span class="t">Cómo</span><p>Pruebas no moderadas con el prototipo, en el equipo de escritorio que usan los agentes.</p></div>
+        <div class="card"><span class="t">Tareas</span><ol class="nl"><li>Procesar un lote de solicitudes de pago.</li><li>Bloquear varias cuentas.</li><li>Encontrar qué cuentas fallaron y por qué.</li></ol></div>
+        <div class="card"><span class="t">Métricas</span><ol class="nl"><li>Tasa de éxito.</li><li>Tiempo por tarea.</li><li>Errores en la cuenta equivocada.</li><li>SEQ: facilidad percibida de 1 a 7.</li></ol></div>
+      </div>
+    </section>
+
+    <div class="prose measure">
+      <h2>Haría diferente</h2>
+      <p>Mediría el tiempo por tarea antes y después del lanzamiento. La mejora fue clara para quienes lo usaban, pero no puedo ponerle una cifra.</p>
+      <p>La versión en producción también dejó espacio para mejorar, y exploré la siguiente iteración en Kestrel UI:</p>
+      <ul>
+        <li><strong>Decir por qué y permitir reintentar.</strong> Las cuentas fallidas mostraban un error general. Cada falla debería indicar su motivo y ofrecer reintentar solo las fallidas.</li>
+        <li><strong>Fricción donde importa.</strong> Bloquear una cuenta usaba la misma confirmación que cualquier otra acción. Las acciones de alto riesgo merecen un modal Risk que no se cierre al hacer clic en el fondo, con el foco inicial en Cancel.</li>
+        <li><strong>Explicar las restricciones en su lugar.</strong> Los tooltips mostraban un mensaje genérico de permisos. El motivo, y quién puede desbloquear la acción, deberían verse sin pasar el cursor.</li>
+      </ul>
+    </div>
+
+    <figure class="fig">
+      <a class="fig-link" href="../assets/img/c2-v4-partial-result.png"><img src="../assets/img/c2-v4-partial-result.png" srcset="../assets/img/c2-v4-partial-result-800.webp 800w, ../assets/img/c2-v4-partial-result-1600.webp 1600w, ../assets/img/c2-v4-partial-result.webp 3008w" sizes="(max-width: 1200px) calc(100vw - 48px), 1152px" alt="Una tabla donde una fila seleccionada muestra un tag Failed con el motivo Record locked, junto a un toast de advertencia: 2 de 3 registros marcados como revisados, 1 falló, Retry failed." width="3008" height="548" loading="lazy"></a>
+      <figcaption>Siguiente iteración: el registro fallido dice por qué, y el agente puede reintentar solo ese.</figcaption>
+    </figure>
+
+    <figure class="fig">
+      <a class="fig-link" href="../assets/img/c2-v5-risk-modal.png"><img src="../assets/img/c2-v5-risk-modal.png" srcset="../assets/img/c2-v5-risk-modal-800.webp 800w, ../assets/img/c2-v5-risk-modal-1600.webp 1600w, ../assets/img/c2-v5-risk-modal.webp 2392w" sizes="(max-width: 1200px) calc(100vw - 48px), 1152px" alt="Dos modales de confirmación lado a lado: uno default para marcar 3 registros como revisados y uno de riesgo para eliminar 3 registros, con un botón de confirmar en rojo." width="2392" height="932" loading="lazy"></a>
+      <figcaption>Siguiente iteración: las acciones irreversibles reciben una confirmación Risk, visiblemente distinta de las rutinarias.</figcaption>
+    </figure>
+
+    <div class="prose measure">
+      <h2>Trabajo relacionado</h2>
+      <p>Para ~30 underwriters diseñé Cash Flow Analysis y Pre-Underwriting, incluida una gráfica de tendencia interactiva que propuse y prototipé; salió a producción e ingeniería la reconoció en una demo.</p>
+    </div>
+
+    <figure class="fig">
+      <a class="fig-link" href="../assets/img/c2-v6-line-chart.png"><img src="../assets/img/c2-v6-line-chart.png" srcset="../assets/img/c2-v6-line-chart-800.webp 800w, ../assets/img/c2-v6-line-chart-1600.webp 1600w, ../assets/img/c2-v6-line-chart.webp 3008w" sizes="(max-width: 1200px) calc(100vw - 48px), 1152px" alt="Una gráfica de líneas del volumen liquidado en 12 semanas, en reposo y en hover con un tooltip." width="3008" height="876" loading="lazy"></a>
+      <figcaption>Una gráfica de tendencia en reposo y en hover: el tooltip se ajusta al punto más cercano.</figcaption>
+    </figure>
+
+
+    <section class="next">
+      <p class="soon-note">Siguiente caso de estudio</p>
+      <h3 style="margin-top: 8px;"><a href="case-03.html" style="color: var(--ink); text-decoration: none;">Un portal para 250+ partners de crédito</a></h3>
+      <p style="margin-top: 16px;"><a href="index.html#work">Volver a todo el trabajo</a></p>
+    </section>
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="rule" aria-hidden="true"></div>
+    <div class="links">
+      <a href="mailto:hcakraken@gmail.com">Correo</a>
+      <a href="https://www.linkedin.com/in/alejandrokraken">LinkedIn</a>
+      <a href="../cv/Alejandro-Sanchez-Fernandez-CV-ES.pdf">CV (PDF)</a>
+    </div>
+  </div>
+</footer>
+<script>
+(() => {
+  if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const sel = '.work-item, .about > *, .fig, .fig-pair, .diagram, .prose, .note, .next, .cards, .rt-wrap, .actors, .why, .annotated';
+  const els = [...document.querySelectorAll(sel)].filter(el => !el.parentElement.closest('.fig-pair'));
+  els.forEach(el => el.classList.add('reveal'));
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.05, rootMargin: '0px 0px -6% 0px' });
+  els.forEach(el => io.observe(el));
+})();
+</script>
+</body>
+</html>

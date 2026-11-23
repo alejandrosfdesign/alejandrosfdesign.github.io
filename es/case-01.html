@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Construir un design system desde cero y luego enseñarle a la IA a seguirlo — Alejandro Sánchez Fernández</title>
+<meta name="description" content="Caso de estudio: el design system de una empresa de crédito, construido desde cero, implementado como librería en código y convertido en el reglamento para prototipar con IA.">
+<link rel="canonical" href="https://alejandrosfdesign.github.io/es/case-01.html">
+<link rel="alternate" hreflang="en" href="https://alejandrosfdesign.github.io/case-01.html">
+<link rel="alternate" hreflang="es" href="https://alejandrosfdesign.github.io/es/case-01.html">
+<link rel="alternate" hreflang="x-default" href="https://alejandrosfdesign.github.io/case-01.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Alejandro Sánchez Fernández">
+<meta property="og:title" content="Construir un design system desde cero y luego enseñarle a la IA a seguirlo">
+<meta property="og:description" content="Caso de estudio: el design system de una empresa de crédito, construido desde cero, implementado como librería en código y convertido en el reglamento para prototipar con IA.">
+<meta property="og:url" content="https://alejandrosfdesign.github.io/es/case-01.html">
+<meta property="og:locale" content="es_MX">
+<meta property="og:image" content="https://alejandrosfdesign.github.io/assets/og/og-case-01-es.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Construir un design system desde cero y luego enseñarle a la IA a seguirlo">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<script>document.documentElement.classList.add("js")</script>
+<link rel="stylesheet" href="../assets/style.css?v=12">
+<link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../assets/icons/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../assets/icons/apple-touch-icon.png">
+</head>
+<body>
+<a class="skip" href="#main">Saltar al contenido</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="site-name" href="index.html">Alejandro Sánchez Fernández</a>
+    <nav class="site-nav" aria-label="Principal">
+      <a href="index.html#work">Trabajo</a>
+      <a href="index.html#about">Sobre mí</a>
+      <a href="../cv/Alejandro-Sanchez-Fernandez-CV-ES.pdf">CV (PDF)</a>
+      <a href="https://www.linkedin.com/in/alejandrokraken">LinkedIn</a>
+      <span class="lang-switch" aria-label="Idioma"><a href="../case-01.html" lang="en" hreflang="en">EN</a><span aria-hidden="true">·</span><a href="case-01.html" lang="es" hreflang="es" aria-current="page">ES</a></span>
+    </nav>
+  </div>
+  <div class="wrap rule" aria-hidden="true" style="margin-top: 20px;"></div>
+</header>
+
+<main id="main">
+  <section class="case-hero">
+    <div class="wrap intro">
+      <a class="back" href="index.html#work">Todo el trabajo</a>
+      <h1>Construir un design system desde cero y luego enseñarle a la IA a seguirlo</h1>
+      <p class="lede">Construí desde cero el design system de una empresa de crédito, lo implementé con ingeniería como librería en código y después lo convertí en el reglamento para prototipar con IA.</p>
+      <dl class="facts">
+        <div><dt>Rol</dt><dd>Primer product designer in-house</dd></div>
+        <div><dt>Equipo</dt><dd>2 diseñadores, ~8 ingenieros</dd></div>
+        <div><dt>Periodo</dt><dd>2022–2026</dd></div>
+        <div><dt>Herramientas</dt><dd>Figma, Storybook, Chromatic, Jira, Claude, Claude Design</dd></div>
+      </dl>
+      <p class="kestrel-note">Los visuales son reconstrucciones hechas con Kestrel UI, una marca ficticia con datos ficticios. Muestran los principios del trabajo, no las pantallas reales de la empresa.</p>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <figure class="fig">
+      <a class="fig-link" href="../assets/img/c1-hero-cover.png"><picture><source media="(max-width: 700px)" type="image/webp" srcset="../assets/img/c1-hero-cover-m-800.webp 800w, ../assets/img/c1-hero-cover-m.webp 1344w" sizes="calc(100vw - 48px)"><source media="(max-width: 700px)" srcset="../assets/img/c1-hero-cover-m.png"><img src="../assets/img/c1-hero-cover.png" srcset="../assets/img/c1-hero-cover-800.webp 800w, ../assets/img/c1-hero-cover-1600.webp 1600w, ../assets/img/c1-hero-cover.webp 3200w" sizes="(max-width: 1200px) calc(100vw - 48px), 1152px" alt="Portada de Kestrel UI: una gráfica de líneas del volumen liquidado, tags de estatus y una barra de acciones masivas." width="3200" height="1920"></picture></a>
+      <figcaption>Kestrel UI, una reconstrucción de los principios del sistema con una marca y datos ficticios.</figcaption>
+    </figure>
+
+    <div class="prose measure">
+      <h2>Contexto</h2>
+      <p>Cuando entré a Camino Financial, hoy Quantum Lending Solutions, no había diseño de producto in-house ni un sistema compartido. En los años siguientes, el sistema tuvo que servir a tres tipos de producto: una plataforma interna de servicing para los equipos de operaciones y underwriting, un portal para PyMEs acreditadas y un portal para partners de crédito.</p>
+
+      <h2>Mi rol</h2>
+      <p>Fui el primer product designer in-house de la empresa, y no existía un design system. Construirlo, implementarlo con ingeniería y auditarlo, de principio a fin, fue mi responsabilidad. Definí cómo se pasa el trabajo entre diseño e ingeniería y me convertí en el aprobador visual formal de los cambios de front-end en Chromatic. En 2026, junto con mi compañero de diseño, rediseñé nuestro proceso alrededor de la IA.</p>
+
+      <h2>El problema</h2>
+      <p>Diseño e ingeniería no compartían componentes, y el handoff dependía de conversaciones dispersas en lugar de un proceso claro. Años después apareció un problema nuevo: las herramientas de IA generaban pantallas rápido, pero nada les impedía inventar componentes, colores o espaciados fuera del sistema.</p>
+
+    </div>
+
+    <section class="block">
+      <div class="prose measure">
+        <h2>A quién servía el sistema</h2>
+      </div>
+      <div class="cards">
+        <div class="card persona"><span class="t">Diseñador</span><p class="sub">Diseña y prototipa con el kit.</p><blockquote class="jtbd">“Cuando empiezo una pantalla nueva, quiero componentes y tokens confiables, para no reinventar lo que ya existe.”</blockquote><p><b>Frustración:</b> diseño e ingeniería no compartían componentes.</p></div>
+        <div class="card persona"><span class="t">Ingeniero</span><p class="sub">Construye los componentes en la librería en código.</p><blockquote class="jtbd">“Cuando construyo un componente, quiero su anatomía y estados documentados, para que el código coincida con el diseño sin idas y vueltas.”</blockquote><p><b>Frustración:</b> el handoff dependía de conversaciones dispersas.</p></div>
+        <div class="card persona"><span class="t">PM o stakeholder</span><p class="sub">Revisa iteraciones y decide qué avanza.</p><blockquote class="jtbd">“Cuando una funcionalidad todavía se está definiendo, quiero ver una primera iteración pronto, para dar feedback sobre algo que realmente se pueda construir.”</blockquote><p><b>Frustración:</b> un primer diseño tomaba cerca de una semana (estimación mía).</p></div>
+      </div>
+      <p class="fine">Formato JTBD: cuando [situación], quiero [motivación], para [resultado esperado].</p>
+    </section>
+
+    <section class="block">
+      <div class="prose measure"><h2>Retos clave</h2></div>
+      <div class="rt-wrap">
+        <table class="rt"><caption class="sr-only">Cuatro retos clave a lo largo del doble diamante: descubrir, definir como pregunta HMW, desarrollar y entregar</caption>
+          <thead><tr><th scope="col">Reto</th><th scope="col" class="ph-c">Descubrir</th><th scope="col" class="ph-c">Definir · HMW</th><th scope="col" class="ph-m">Desarrollar</th><th scope="col" class="ph-m">Entregar</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Sin componentes compartidos</th><td data-l="Descubrir">Feedback de ingeniería: no había componentes compartidos y el handoff dependía de conversaciones dispersas.</td><td data-l="Definir · HMW" class="hmw">¿Cómo podríamos darles a diseño e ingeniería una sola fuente de verdad?</td><td data-l="Desarrollar">Primero tokens, luego componentes documentados, construidos por ingeniería como librería en código; Chromatic como filtro de aprobación.</td><td data-l="Entregar" class="out">Una sola librería en código para todos los productos</td></tr>
+            <tr><th scope="row">La marca de cada partner</th><td data-l="Descubrir">Requerimientos de producto: el portal para partners debía llevar la marca de cada partner.</td><td data-l="Definir · HMW" class="hmw">¿Cómo podríamos aplicar la marca de cada partner sin duplicar componentes?</td><td data-l="Desarrollar">Tokens de marca coordinados con ingeniería: cada partner define su color primario y su logo.</td><td data-l="Entregar" class="out">La marca cambia sin romper componentes ni contraste</td></tr>
+            <tr><th scope="row">IA fuera del sistema</th><td data-l="Descubrir">Revisión de prototipos generados con IA: las pantallas salían rápido, pero con componentes, colores y espaciados inventados.</td><td data-l="Definir · HMW" class="hmw">¿Cómo podríamos dejar que la IA prototipe rápido sin salirse del sistema?</td><td data-l="Desarrollar">Claude y Claude Design conectados al UI Kit, con reglas verificables; todo lo nuevo se documenta primero.</td><td data-l="Entregar" class="out">Tareas de ~1 semana a 2–3 días (estimación mía)</td></tr>
+            <tr><th scope="row">Un sistema que se queda atrás</th><td data-l="Descubrir">Auditorías de prototipos: se repetían patrones entre prototipos que no estaban en el sistema.</td><td data-l="Definir · HMW" class="hmw">¿Cómo podríamos mantener el sistema al día mientras los equipos construyen cosas nuevas?</td><td data-l="Desarrollar">Un agente de Claude audita los prototipos cada 2 semanas y documenta candidatos a canónicos en el archivo de Figma.</td><td data-l="Entregar" class="out">Tablas y cards se volvieron canónicas</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <div class="prose measure">
+      <h2>Proceso y decisiones</h2>
+      <div class="decision">
+        <h3>Fundamentos antes que componentes</h3>
+        <p>Empecé por los tokens y las variables, para que cada componente heredara las mismas decisiones en lugar de repetirlas.</p>
+      </div>
+    </div>
+
+    <figure class="fig">
+      <a class="fig-link" href="../assets/img/c1-v1a-token-architecture.png"><img src="../assets/img/c1-v1a-token-architecture.png" srcset="../assets/img/c1-v1a-token-architecture-800.webp 800w, ../assets/img/c1-v1a-token-architecture-1600.webp 1600w, ../assets/img/c1-v1a-token-architecture.webp 3200w" sizes="(max-width: 1200px) calc(100vw - 48px), 1152px" alt="Tabla de arquitectura de tokens: capas de primitivos, semánticos y de componente, con quién usa cada una y su regla." width="3200" height="1312" loading="lazy"></a>
+      <figcaption>Arquitectura de tokens: los primitivos alimentan a los tokens semánticos, y estos a los componentes.</figcaption>
+    </figure>
+
+    <div class="fig-pair">
+      <figure class="fig" style="margin: 0;">
+        <a class="fig-link" href="../assets/img/c1-v1b-semantic-tokens.png"><img src="../assets/img/c1-v1b-semantic-tokens.png" srcset="../assets/img/c1-v1b-semantic-tokens-800.webp 800w, ../assets/img/c1-v1b-semantic-tokens-1600.webp 1600w, ../assets/img/c1-v1b-semantic-tokens.webp 2880w" sizes="(max-width: 800px) calc(100vw - 48px), 564px" alt="Tablero de tokens semánticos: texto, superficie, borde, acción, estatus, gráficas y foco, con sus alias de primitivos." width="2880" height="2716" loading="lazy"></a>
+        <figcaption>Los tokens semánticos se nombran por su propósito, nunca por su apariencia.</figcaption>
+      </figure>
+      <figure class="fig" style="margin: 0;">
+        <a class="fig-link" href="../assets/img/c1-v1c-spacing-scale.png"><img src="../assets/img/c1-v1c-spacing-scale.png" srcset="../assets/img/c1-v1c-spacing-scale-800.webp 800w, ../assets/img/c1-v1c-spacing-scale-1600.webp 1600w, ../assets/img/c1-v1c-spacing-scale.webp 2880w" sizes="(max-width: 800px) calc(100vw - 48px), 564px" alt="Escala de espaciado de 4 a 64 con notas de uso y reglas de layout." width="2880" height="1108" loading="lazy"></a>
+        <figcaption>Base de 4px y ritmo de 8px. Si un valor no está en la escala, el que está mal es el layout, no la escala.</figcaption>
+      </figure>
+    </div>
+
+    <div class="prose measure" style="margin-top: 48px;">
+      <div class="decision">
+        <h3>La marca de cada partner, como capa de tokens</h3>
+        <p>El portal para partners debía llevar la marca de cada partner. El white-label vivía en los tokens de color y marca del sistema, que coordiné con ingeniería: cada partner definía su color primario y su logo, y el portal los aplicaba sin romper componentes ni contraste. Solo se usó en el portal para partners, que cuento en <a href="case-03.html">el tercer caso de estudio</a>.</p>
+      </div>
+    </div>
+
+    <figure class="fig">
+      <a class="fig-link" href="../assets/img/c1-v7-white-label.png"><img src="../assets/img/c1-v7-white-label.png" srcset="../assets/img/c1-v7-white-label-800.webp 800w, ../assets/img/c1-v7-white-label-1600.webp 1600w, ../assets/img/c1-v7-white-label.webp 2400w" sizes="(max-width: 1200px) calc(100vw - 48px), 1152px" alt="Tablero de tokens de marca: brand primary y brand logo se definen por partner, las acciones primarias y el progreso toman brand primary, y la misma tarjeta de solicitud aparece en tres marcas: índigo de Kestrel, verde de Cedar Point Partners y óxido de Alder Ridge Finance." width="2400" height="1096" loading="lazy"></a>
+      <figcaption>Dos valores por partner; todo lo demás se mantiene fijo. Reconstrucción con Kestrel UI y partners ficticios.</figcaption>
+    </figure>
+
+    <div class="prose measure" style="margin-top: 48px;">
+      <div class="decision">
+        <h3>Blueprints con los que ingeniería podía construir</h3>
+        <p>Los componentes venían con documentación y blueprints, e ingeniería los implementó como una librería en código usada en todos los productos.</p>
+      </div>
+    </div>
+
+    <figure class="fig">
+      <a class="fig-link" href="../assets/img/c1-v2b-table-row.png"><img src="../assets/img/c1-v2b-table-row.png" srcset="../assets/img/c1-v2b-table-row-800.webp 800w, ../assets/img/c1-v2b-table-row-1600.webp 1600w, ../assets/img/c1-v2b-table-row.webp 3200w" sizes="(max-width: 1200px) calc(100vw - 48px), 1152px" alt="Documentación del componente de fila de tabla: anatomía, estados y reglas, con variantes de encabezado y fila." width="3200" height="2220" loading="lazy"></a>
+      <figcaption>Anatomía del componente: cada estado se documenta una vez, para que diseño y código compartan la misma fuente.</figcaption>
+    </figure>
+
+    <div class="fig-pair">
+      <figure class="fig" style="margin: 0;">
+        <a class="fig-link" href="../assets/img/c1-v2a-button.png"><img src="../assets/img/c1-v2a-button.png" srcset="../assets/img/c1-v2a-button-800.webp 800w, ../assets/img/c1-v2a-button-1600.webp 1600w, ../assets/img/c1-v2a-button.webp 3200w" sizes="(max-width: 800px) calc(100vw - 48px), 564px" alt="Componente de botón con variantes primary, secondary, tertiary y danger en todos sus estados." width="3200" height="1148" loading="lazy"></a>
+        <figcaption>Botones: tres niveles de jerarquía más Danger, un solo Primary por vista.</figcaption>
+      </figure>
+      <figure class="fig" style="margin: 0;">
+        <a class="fig-link" href="../assets/img/c1-v2c-status-tag.png"><img src="../assets/img/c1-v2c-status-tag.png" srcset="../assets/img/c1-v2c-status-tag-800.webp 800w, ../assets/img/c1-v2c-status-tag-1600.webp 1600w, ../assets/img/c1-v2c-status-tag.webp 3200w" sizes="(max-width: 800px) calc(100vw - 48px), 564px" alt="Componente de tag de estatus con los estados settled, pending, failed y draft." width="3200" height="1020" loading="lazy"></a>
+        <figcaption>Los tags de estatus repiten el significado con un ícono, para que el estatus nunca dependa solo del color.</figcaption>
+      </figure>
+    </div>
+
+    <div class="prose measure" style="margin-top: 48px;">
+      <div class="decision">
+        <h3>Un filtro, no una sugerencia</h3>
+        <p>Ningún cambio visual llegaba a producción sin revisión en Chromatic. La consistencia dejó de depender de la memoria.</p>
+      </div>
+    </div>
+
+    <div class="diagram" role="figure" aria-label="Flujo de gobierno de Figma a merge">
+      <p class="title">De diseño a producción</p>
+      <ol class="flow fit">
+        <li><div class="step">Figma<small>Se diseña con los componentes y tokens del kit</small></div></li>
+        <li><div class="step">Storybook<small>Ingeniería construye el componente en código</small></div></li>
+        <li><div class="step gate">Revisión en Chromatic<small>Aprobación visual de diseño</small></div></li>
+        <li><div class="step">Merge<small>Llega a todos los productos</small></div></li>
+      </ol>
+      <div class="legend"><span class="l-gate">Filtro de aprobación de diseño</span></div>
+    </div>
+
+    <div class="prose measure">
+      <div class="decision">
+        <h3>Un proceso que cuenta con la IA</h3>
+        <p>Nuestro flujo pasó de cuatro etapas a seis, sumando exploración con IA y feedback estructurado antes de la primera iteración real.</p>
+      </div>
+    </div>
+
+    <div class="diagram" role="figure" aria-label="Proceso de diseño antes y después de sumar la IA">
+      <p class="title">El proceso, antes y después</p>
+      <p class="row-label">Antes</p>
+      <ol class="flow">
+        <li><div class="step">Por hacer</div></li>
+        <li><div class="step">En progreso</div></li>
+        <li><div class="step">En revisión</div></li>
+        <li><div class="step">Terminado</div></li>
+      </ol>
+      <p class="row-label">Después</p>
+      <ol class="flow">
+        <li><div class="step">Por hacer</div></li>
+        <li><div class="step ai">Exploración IA</div></li>
+        <li><div class="step">En feedback</div></li>
+        <li><div class="step">Primera iteración</div></li>
+        <li><div class="step">En revisión</div></li>
+        <li><div class="step">Terminado</div></li>
+      </ol>
+      <div class="legend"><span class="l-ai">La IA genera opciones dentro del sistema; las personas deciden qué avanza</span></div>
+    </div>
+
+    <div class="prose measure">
+      <div class="decision">
+        <h3>Una sola fuente de verdad para la IA</h3>
+        <p>Configuramos Claude y Claude Design para prototipar solo con los componentes, tokens y variables del UI kit. Si de verdad se necesitaba algo nuevo, primero había que documentarlo y luego revisarlo para el sistema.</p>
+      </div>
+    </div>
+
+    <figure class="fig">
+      <a class="fig-link" href="../assets/img/c1-v5a-ai-rules.png"><img src="../assets/img/c1-v5a-ai-rules.png" srcset="../assets/img/c1-v5a-ai-rules-800.webp 800w, ../assets/img/c1-v5a-ai-rules-1600.webp 1600w, ../assets/img/c1-v5a-ai-rules.webp 3200w" sizes="(max-width: 1200px) calc(100vw - 48px), 1152px" alt="Reglas para prototipar con IA: siempre, nunca y qué hacer cuando al sistema le falta algo." width="3200" height="1044" loading="lazy"></a>
+      <figcaption>El reglamento para la IA: restricciones verificables, para que el resultado se quede dentro del sistema sin revisar cada pixel.</figcaption>
+    </figure>
+
+    <figure class="fig">
+      <a class="fig-link" href="../assets/img/c1-v5b-filter-bar.png"><img src="../assets/img/c1-v5b-filter-bar.png" srcset="../assets/img/c1-v5b-filter-bar-800.webp 800w, ../assets/img/c1-v5b-filter-bar-1600.webp 1600w, ../assets/img/c1-v5b-filter-bar.webp 3200w" sizes="(max-width: 1200px) calc(100vw - 48px), 1152px" alt="Patrón de barra de filtros con un campo de búsqueda, un menú desplegable abierto y un botón de exportar." width="3200" height="1032" loading="lazy"></a>
+      <figcaption>Los patrones combinan componentes existentes con reglas documentadas, para armar una pantalla sin inventar nada nuevo.</figcaption>
+    </figure>
+
+    <div class="prose measure" style="margin-top: 48px;">
+      <div class="decision">
+        <h3>Un sistema que se mantiene al día</h3>
+        <p>Conecté el Claude Design de la organización al sistema, así las primeras iteraciones llegaban a los stakeholders en 2–3 días y luego se refinaban en Figma. Cada 2 semanas, un agente de Claude que configuré auditaba nuestros prototipos, documentaba lo que se repetía y proponía qué debía volverse canónico. Su resultado era una página de documentación dentro del archivo de Figma auditado.</p>
+      </div>
+    </div>
+
+    <div class="diagram" role="figure" aria-label="Ciclo de diseño asistido por IA con un agente de auditoría que alimenta el UI kit">
+      <p class="title">Del kit a los stakeholders, y de vuelta al kit</p>
+      <ol class="flow cycle">
+        <li><div class="step">UI Kit<small>Tokens y componentes, librería en código</small></div></li>
+        <li><div class="step ai">Claude Design<small>Conectado al sistema: primera iteración en 2–3 días</small></div></li>
+        <li><div class="step">Stakeholders<small>Feedback temprano sobre algo tangible</small></div></li>
+        <li><div class="step">Figma<small>Detalle fino y prototipo final</small></div></li>
+        <li><div class="step agent">Agente de auditoría<small>Cada 2 semanas: qué debe volverse canónico</small></div></li>
+      </ol>
+      <div class="legend"><span class="l-ai">La IA trabaja dentro del sistema</span><span class="l-agent">Los candidatos vuelven al UI Kit como componentes canónicos</span></div>
+    </div>
+
+    <figure class="fig">
+      <a class="fig-link" href="../assets/img/c1-v8-audit-page.png"><img src="../assets/img/c1-v8-audit-page.png" srcset="../assets/img/c1-v8-audit-page-800.webp 800w, ../assets/img/c1-v8-audit-page-1600.webp 1600w, ../assets/img/c1-v8-audit-page.webp 2400w" sizes="(max-width: 1200px) calc(100vw - 48px), 1152px" alt="Una página de Figma escrita por el agente de auditoría: tablas y tarjetas de resumen repetidas entre prototipos, cada una con una propuesta y marcada como canónica." width="2400" height="882" loading="lazy"></a>
+      <figcaption>La página del agente en el archivo auditado. Así se volvieron canónicas las tablas y las cards, que no estaban en el sistema. Reconstrucción con datos ficticios.</figcaption>
+    </figure>
+
+    <div class="prose measure">
+      <h2>Resultados</h2>
+      <ul>
+        <li>Una sola librería en código para todos los productos, con aprobación visual en Chromatic.</li>
+        <li>Las tablas y las cards entraron al sistema gracias al agente de auditoría, así el kit siguió el ritmo de lo que los equipos realmente construían.</li>
+        <li>Las tareas típicas de diseño pasaron de cerca de una semana a 2–3 días (estimación mía).</li>
+        <li>Mi Director de Producto destacó que el equipo podía prototipar sin esperar a que diseño tuviera capacidad.</li>
+      </ul>
+
+    </div>
+
+    <section class="block">
+      <div class="prose measure">
+        <h2>Cómo lo mediría</h2>
+        <p><span class="proposal">Propuesta, no ejecutada en el proyecto</span></p>
+      </div>
+      <div class="cards">
+        <div class="card"><span class="t">Tiempo de ciclo</span><p>Del ticket a la primera iteración mostrada a stakeholders, antes y después de la exploración con IA.</p></div>
+        <div class="card"><span class="t">Cobertura</span><p>Porcentaje de pantallas de prototipo construidas solo con componentes canónicos, tomado de cada auditoría.</p></div>
+        <div class="card"><span class="t">Tiempo a canónico</span><p>Desde la primera auditoría que detecta un patrón repetido hasta su release en la librería en código.</p></div>
+      </div>
+    </section>
+
+    <div class="prose measure">
+      <h2>Haría diferente</h2>
+      <p>Mediría el tiempo de ciclo desde el primer día. El proceso claramente se aceleró, pero solo puedo dar una estimación, no una cifra.</p>
+    </div>
+
+
+    <section class="next">
+      <p class="soon-note">Siguiente caso de estudio</p>
+      <h3 style="margin-top: 8px;"><a href="case-02.html" style="color: var(--ink); text-decoration: none;">Convertir operaciones <span style="white-space: nowrap">una por una</span> en acciones masivas seguras</a></h3>
+      <p style="margin-top: 16px;"><a href="index.html#work">Volver a todo el trabajo</a></p>
+    </section>
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="rule" aria-hidden="true"></div>
+    <div class="links">
+      <a href="mailto:hcakraken@gmail.com">Correo</a>
+      <a href="https://www.linkedin.com/in/alejandrokraken">LinkedIn</a>
+      <a href="../cv/Alejandro-Sanchez-Fernandez-CV-ES.pdf">CV (PDF)</a>
+    </div>
+  </div>
+</footer>
+<script>
+(() => {
+  if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const sel = '.work-item, .about > *, .fig, .fig-pair, .diagram, .prose, .note, .next, .cards, .rt-wrap, .actors, .why, .annotated';
+  const els = [...document.querySelectorAll(sel)].filter(el => !el.parentElement.closest('.fig-pair'));
+  els.forEach(el => el.classList.add('reveal'));
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.05, rootMargin: '0px 0px -6% 0px' });
+  els.forEach(el => io.observe(el));
+})();
+</script>
+</body>
+</html>

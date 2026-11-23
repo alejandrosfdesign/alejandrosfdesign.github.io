@@ -332,6 +332,12 @@ picture { display: block; }
 .legend .l-agent::before { background: #fbe7ef; border: 1px solid #e9b5c9; }
 .flow.cycle > li { flex: 1 1 0; min-width: 0; }
 .flow.cycle .step { white-space: normal; flex: 1; align-self: stretch; }
+/* Flows that must fit the column on desktop: steps shrink and wrap instead of scrolling */
+@media (min-width: 701px) {
+  .flow.fit > li { flex: 0 1 auto; min-width: 0; }
+  .flow.fit > li::before { flex: 0 0 20px; }
+  .flow.fit .step { white-space: normal; align-self: stretch; }
+}
 .card .lab { font-family: var(--mono); font-size: 11.5px; letter-spacing: .12em; text-transform: uppercase; font-weight: 600; color: var(--muted); }
 .card.first { background: #fbe7ef; border-color: #e9b5c9; }
 .card.first .lab { color: var(--magenta); }
